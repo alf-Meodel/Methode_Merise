@@ -1,4 +1,4 @@
-# Main Title
+# Methode Merise
 
 <!-- Main image  -->
 
@@ -10,7 +10,7 @@
 
 # Navigation
 
-- [Benchmark SGBDR](./doc/benchmark-sgbdr.md)
+- [Dailys](./doc/dailys.md)
 
 ![border](./assets/line/line-pink-point_l.png)
 
