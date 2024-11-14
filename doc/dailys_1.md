@@ -67,11 +67,11 @@
 
 ---
 
-![border](../assets/line/border_b.png)
+![border](../assets/line/line-teal-point_l.png)
 
 ### Comprendre l historique et le contexte
 
-![border](../assets/line/line_teal_point_l.png)
+![border](../assets/line/line-teal-point_l.png)
 
 **La méthode Merise est une méthode d'analyse et de conception des systèmes d'information née en France dans les années 1970**.
 
@@ -91,7 +91,11 @@ Merise s’appuie sur deux modèles : le Modèle de Données (MCD) pour structur
 
 ---
 
+![border](../assets/line/line-teal-point_l.png)
+
 ### Les différents niveaux de Merise sont
+
+![border](../assets/line/line-teal-point_l.png)
 
 #### Niveau conceptuel :
 
