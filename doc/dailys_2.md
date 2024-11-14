@@ -4,7 +4,7 @@
 
 ![border](../assets/line/border_deco_rt.png)
 
-# Dailys
+# Dailys 2
 
 ![border](../assets/line/line-pink-point_l.png)
 
@@ -12,6 +12,7 @@
 
 - [Cardinalités](#les-cardinalités)
   - [Lire les Cardinalités](#savoir-lire-les-cardinalités)
+  - []()
 
 ## Notes
 
