@@ -12,7 +12,6 @@
 
 - [Cardinalités](#les-cardinalités)
   - [Lire les Cardinalités](#savoir-lire-les-cardinalités)
-  - []()
 
 ## Notes
 
@@ -138,26 +137,6 @@ En maîtrisant la lecture, l’écriture et la validation des cardinalités, on 
 ![border](../assets/line/line-teal-point_r.png)
 
 Une contrainte d'intégrité est une règle qui garantit que les données dans la base de données respectent certaines conditions pour qu'elles soient valides et cohérentes. Ces contraintes permettent de s'assurer que les informations stockées sont logiques, sans erreurs et respectent des règles précises.
-
-### Les types de contraintes d'intégrité
-
-Il y a plusieurs types de contraintes d'intégrité :
-
-#### Contrainte d'intégrité de domaine :
-
-Elle vérifie que les valeurs des attributs respectent un certain type ou format (par exemple, une date de naissance ne peut pas être dans le futur).
-
-#### Contrainte d'intégrité de clé :
-
-Elle vérifie que certaines valeurs (comme les clés primaires) sont uniques et non nulles.
-
-#### Contrainte d'intégrité référentielle :
-
-Elle garantit que les relations entre les tables sont respectées (par exemple, une classe doit exister avant d'assigner un élève à cette classe).
-
-#### Contrainte d'intégrité fonctionnelle (celle dont nous parlons ici) :
-
-Elle définit une règle sur la relation entre les attributs dans une table, en indiquant qu'une information (ou un ensemble d'informations) détermine de manière unique une autre information.
 
 ![border](../assets/line/line-teal-point_r.png)
 
