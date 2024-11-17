@@ -4,9 +4,16 @@
 
 ![border](./assets/line/border_deco_rt.png)
 
+## Notes
+
+```
+CIF : regles de gestion bien goupillés
+CIP: que les propriétés et attributs soient bien respectés
+```
+
 # Sommaire
 
-- [Objectif et Consignes](#objectif-et-consignes)
+- [Merise définition](#merise-definition)
 
 # Navigation
 
@@ -28,10 +35,8 @@ Merise est une méthode française d'analyse et de conception des systèmes d'in
 
 - « qui ne peut porter de beaux fruits que si on lui greffe une branche de cerisier : ainsi en va-t-il des méthodes informatiques bien conçues, qui ne produisent de bons résultats que si la greffe sur l'organisation réussit »
 
-<a href="#sommaire">
-<img src="assets/button/back_to_top.png" alt="Home page" style="width: 150px; height: auto;">
-</a>
-
 ![border](./assets/line/line-teal-point_l.png)
+
+<a href="#sommaire"><img src="assets/button/back_to_top.png" alt="Home page" style="width: 150px; height: auto;"></a>
 
 ![border](./assets/line/border_deco_rt.png)
