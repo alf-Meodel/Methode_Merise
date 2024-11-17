@@ -15,38 +15,33 @@ CIP: que les propriétés et attributs soient bien respectés
 
 ![border](../assets/line/border_deco_rb.png)
 
-# Objectifs journaliers
+# Les cardinalités et les contraintes
 
 ![border](../assets/line/line-pink-point_r.png)
 
 ## Sommaire
 
-### Les cardinalités et les contraintes
-
 - [x] [Les cardinalités](#les-cardinalités)
-- [x] Savoir lire les cardinalités :
-- [x] Savoir écrire les cardinalités :
-- [x] Savoir valider les cardinalités :
 
-![border](../assets/line/line-pink-point_r.png)
+  - [x] Savoir lire les cardinalités :
+  - [x] Savoir écrire les cardinalités :
+  - [x] Savoir valider les cardinalités :
 
 - [x] [Les différents types de contraintes](#les-differents-types-de-contraintes)
-- [x] Contraintes d'intégrité fonctionnelle
-- [x] [Savoir définir une contrainte d'intégrité] :
-- [x] Savoir différencier les types de contraintes :
-- [x] Contraintes d'intégrité physique :
+  - [x] Contraintes d'intégrité fonctionnelle
+  - [x] [Savoir définir une contrainte d'intégrité] :
+  - [x] Savoir différencier les types de contraintes :
+  - [x] Contraintes d'intégrité physique :
 - [x] [Les contraintes d'intégrité fonctionnelle (CIF)](#les-contraintes-dintégrité-fonctionnelle-cif)
-- [x] Savoir identifier une CIF :
-- [x] Savoir représenter une CIF sur le MCD :
-- [x] Savoir valider une CIF :
+  - [x] Savoir identifier une CIF :
+  - [x] Savoir représenter une CIF sur le MCD :
+  - [x] Savoir valider une CIF :
 - [x] [Les contraintes d'intégrité physique](#contraintes-dintégrité-physique)
-- [x] Savoir identifier une contrainte physique :
-- [x] Savoir représenter une contrainte physique :
-- [x] Savoir valider une contrainte physique :
+  - [x] Savoir identifier une contrainte physique :
+  - [x] Savoir représenter une contrainte physique :
+  - [x] Savoir valider une contrainte physique :
 
-<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
-
-![border](../assets/line/line-teal-point_l.png)
+![border](../assets/line/border_deco_l.png)
 
 # Les Cardinalités
 

@@ -1,86 +1,98 @@
 <a href="../README.md"><img src="../assets/button/home_page.png" alt="Home page" style="width: 150px; height: auto;"></a>
 
-![border](../assets/line/line-pink-point_l.png)
-![border](../assets/line/border_deco_rb.png)
+![border](../assets/line/border_deco_rt.png)
 
 # Dailys 1 MERISE
 
 ![border](../assets/line/line-pink-point_l.png)
 
-# Sommaire
+## Notes
 
-## Introduction à la méthode MERISE et au MCD
+```
+CIF : regles de gestion bien goupillés
+CIP: que les propriétés et attributs soient bien respectés
+```
+
+![border](../assets/line/border_deco_rb.png)
+
+# Introduction à la méthode MERISE et au MCD
+
+![border](../assets/line/line-pink-point_l.png)
+
+## Sommaire
 
 - [x] [Découverte de MERISE](#découverte-de-merise)
-- [x] Comprendre l'historique et le contexte
-- [x] Identifier les différents niveaux de MERISE
-- [x] Comprendre le vocabulaire de base
+  - [x] Comprendre l'historique et le contexte
+  - [x] Identifier les différents niveaux de MERISE
+  - [x] Comprendre le vocabulaire de base
 - [x] [Les concepts de base du MCD](#les-concepts-de-base-du-mcd)
-- [x] Les entités
-- [x] Savoir définir les entités
-- [x] Savoir nommer les entités
-- [x] Savoir identifier les occurrences
-- [x] [Tableau_représentatif](#tableau-représentatif)
+  - [x] Les entités
+  - [x] Savoir définir les entités
+  - [x] Savoir nommer les entités
+  - [x] Savoir identifier les occurrences
+  - [x] [Tableau_représentatif](#tableau-représentatif)
 - [x] [Le Dictionnaire de données](#le-dictionnaire-de-données)
-- [x] Savoir créer un dictionnaire de données
-- [x] Savoir définir les propriétés
-- [x] Savoir typer les propriétés
-- [x] Savoir documenter les propriétés
+  - [x] Savoir créer un dictionnaire de données
+  - [x] Savoir définir les propriétés
+  - [x] Savoir typer les propriétés
+  - [x] Savoir documenter les propriétés
 - [x] [Les associations](#les-associations)
-- [x] Savoir définir les associations
-- [x] Savoir nommer les associations
-- [x] Savoir identifier les cardinalités
+  - [x] Savoir définir les associations
+  - [x] Savoir nommer les associations
+  - [x] Savoir identifier les cardinalités
 - [x] [Les règles de gestion](#les-règles-de-gestion)
-- [x] Savoir extraire les règles d'un cahier des charges
-- [x] Savoir formaliser les règles de gestion
-- [x] Savoir valider la cohérence des règles
-- [x] [Installation de Looping sur ubuntu](#installation-de-looping)
+  - [x] Savoir extraire les règles d'un cahier des charges
+  - [x] Savoir formaliser les règles de gestion
+  - [x] Savoir valider la cohérence des règles
+  - [x] [Installation de Looping sur ubuntu](#installation-de-looping)
 
----
-
-![border](../assets/line/line-teal-point_l.png)
+![border](../assets/line/border_deco_l.png)
 
 # Découverte de Merise
 
-![border](../assets/line/line-teal-point_l.png)
+![border](../assets/line/line-teal-point_r.png)
 
-### Comprendre l historique et le contexte
-
-![border](../assets/line/line-teal-point_l.png)
+## Comprendre l historique et le contexte
 
 **La méthode Merise est une méthode d'analyse et de conception des systèmes d'information née en France dans les années 1970**.
 
 Merise, développée en France dans les années 1970 avec le soutien du ministère de l'Industrie, est une méthode rigoureuse de modélisation des données et traitements, visant à refléter fidèlement les processus métiers.
 
-#### Origine
+![border](../assets/line/line-teal-point_r.png)
+
+## Origine
 
 Merise, développée en France dans les années 1970 avec le soutien du ministère de l'Industrie, est une méthode rigoureuse de modélisation des données et traitements, visant à refléter fidèlement les processus métiers.
 
-#### Contexte et Motivations
+![border](../assets/line/line-teal-point_r.png)
+
+## Contexte et Motivations
 
 Dans les années 1970, face à la complexité croissante des systèmes, à l'hétérogénéité des méthodes, et au besoin de structuration des données, Merise apporte une modélisation en niveaux conceptuel, logique et physique.
 
-#### Structure de la Méthode Merise
+![border](../assets/line/line-teal-point_r.png)
+
+## Structure de la Méthode Merise
 
 Merise s’appuie sur deux modèles : le Modèle de Données (MCD) pour structurer l'information, et le Modèle de Traitements (MCT) pour les flux. Elle suit une approche cyclique en quatre étapes : étude, réalisation, maintenance.
 
 ---
 
-![border](../assets/line/line-teal-point_l.png)
+![border](../assets/line/line-teal-point_r.png)
 
-### Les différents niveaux de Merise sont
+## Les différents niveaux de Merise sont
 
-![border](../assets/line/line-teal-point_l.png)
+![border](../assets/line/line-teal-point_r.png)
 
-#### Niveau conceptuel :
+## Niveau conceptuel :
 
 représente les données et traitements de façon indépendante de toute implémentation technique, centré sur la réalité métier.
 
-#### Niveau logique :
+## Niveau logique :
 
 précise la structure des données et des traitements, adaptée aux contraintes d'un SGBD (système de gestion de base de données) spécifique, sans être lié à une plateforme technique.
 
-#### Niveau physique :
+## Niveau physique :
 
 détaille la mise en œuvre technique des données et traitements sur une infrastructure informatique précise (par exemple, le choix du SGBD, des index, etc.).
 
@@ -90,9 +102,9 @@ détaille la mise en œuvre technique des données et traitements sur une infras
 
 ![border](../assets/line/border_deco_rb.png)
 
-# LES CONCEPTS DE BASE DU MCD
+# Les concepts de base du MCD
 
-# Les Entités
+## Les Entités
 
 ## Réponse simple :
 
@@ -230,7 +242,7 @@ La cardinalité exprime le nombre minimum et maximum de fois qu'une entité peut
 
 ## Les Règles de gestion
 
-![border](../assets/line/line-teal-point_l.png)
+![border](../assets/line/line-teal-point_r.png)
 
 ### Introduction
 
