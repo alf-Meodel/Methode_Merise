@@ -123,7 +123,7 @@ Dans une base de données Pokémon, les entités pourraient inclure POKEMON, DRE
 Réponse simple :
 Les entités doivent être nommées de manière claire et singulière pour être compréhensibles. Utilisez des noms au singulier et en majuscules pour une meilleure lisibilité.
 
-#### Cas pratique Pokémon :
+### Cas pratique Pokémon :
 
 POKEMON pour représenter un Pokémon unique, DRESSEUR pour chaque personne qui les entraîne, et TYPE pour des catégories comme Eau, Feu, ou Plante.
 
@@ -132,7 +132,8 @@ POKEMON pour représenter un Pokémon unique, DRESSEUR pour chaque personne qui 
 Réponse simple :
 Chaque occurrence est une instance spécifique de l’entité. Il est essentiel d’associer une clé unique à chaque occurrence.
 
-#### Cas pratique Pokémon :
+### Cas pratique Pokémon :
+
 Chaque Pokémon (ex. "Pikachu") est une occurrence de l’entité POKEMON. Dans une table POKEMON, chaque Pokémon a un identifiant unique (comme id_pokemon) pour le distinguer des autres.
 
 <a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
@@ -199,7 +200,7 @@ Choisissez un type qui correspond aux données de chaque propriété. Exemples :
   Évolution : Texte/Null – Soit le nom du Pokémon en évolution (Raichu pour Pikachu) ou null pour les Pokémon sans évolution.
   Date_de_Création : Date – Indique la date d’ajout, ex. 2024-11-12.
 
-## Savoir documenter les propriétés
+## Savoir documenter les propriétés
 
 Chaque propriété doit être documentée avec une description claire et concise, expliquant son utilité et son format attendu. Par exemple : ID - Identifiant unique, Entier - pour garantir l'unicité; Attaques - Liste des capacités, Liste(Texte) - pour répertorier les attaques connues.
 

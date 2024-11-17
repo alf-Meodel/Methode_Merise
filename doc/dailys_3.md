@@ -71,7 +71,9 @@
 ## Comprendre l'importance de la normalisation
 
 ```
-Si je comprends l'importance de la normalisation, je peux identifier et réduire les anomalies dans une base de données pour améliorer sa cohérence.
+Éliminer les redondances de données.
+Réduire les anomalies (de mise à jour, d'insertion, de suppression).
+Améliorer la cohérence et l’intégrité des données.
 ```
 
 ### Explication imagée :
@@ -410,7 +412,13 @@ Si j'identifie une dépendance fonctionnelle élémentaire, je dois m'assurer qu
 
 ### Cas concret :
 
-Dans une table "Étudiants" avec "ÉtudiantID" et "Nom", "Nom" dépend directement de "ÉtudiantID". Cela signifie que chaque "ÉtudiantID" détermine un seul "Nom". C'est une DF élémentaire.
+| **ÉtudiantID** | **Nom** |
+| -------------- | ------- |
+| 1              | Alice   |
+| 2              | Bob     |
+| 3              | Carol   |
+
+Dans cette table "Étudiants", "Nom" dépend directement de "ÉtudiantID". Cela signifie que chaque "ÉtudiantID" détermine un seul "Nom". Chaque étudiant a un identifiant unique qui sert à retrouver son nom sans ambiguïté. C'est une DF élémentaire.
 
 ## Savoir identifier les DF composées
 
@@ -424,7 +432,14 @@ Si j'identifie une dépendance fonctionnelle composée, je dois vérifier qu'ell
 
 ### Cas concret :
 
-Dans une table "Notes" avec "ÉtudiantID", "CoursID", et "Note", la DF "Note" dépend de la combinaison "ÉtudiantID" et "CoursID". Aucune de ces colonnes seules ne détermine "Note". C’est une DF composée.
+| **ÉtudiantID** | **CoursID** | **Note** |
+| -------------- | ----------- | -------- |
+| 1              | 101         | 15       |
+| 1              | 102         | 18       |
+| 2              | 101         | 12       |
+| 3              | 103         | 14       |
+
+Dans cette table "Notes", la DF "Note" dépend de la combinaison "ÉtudiantID" et "CoursID". Aucune de ces colonnes seules ne permet de déterminer la "Note". Par exemple, l’étudiant 1 dans le cours 101 a une note de 15, mais dans le cours 102, il a une note différente de 18. C’est une DF composée.
 
 ## Savoir identifier les DF transitives
 
@@ -438,7 +453,13 @@ Si j'identifie une dépendance fonctionnelle transitive, je dois m'assurer qu'un
 
 ### Cas concret :
 
-Dans une table "Employés" avec "EmployéID", "Département", et "ResponsableDépartement", "ResponsableDépartement" dépend de "Département", qui dépend de "EmployéID". La relation entre "EmployéID" et "ResponsableDépartement" est transitive.
+| **EmployéID** | **Département** | **ResponsableDépartement** |
+| ------------- | --------------- | -------------------------- |
+| 1             | Informatique    | Alice                      |
+| 2             | RH              | Bob                        |
+| 3             | Informatique    | Alice                      |
+
+Dans cette table "Employés", "ResponsableDépartement" dépend de "Département", et "Département" dépend de "EmployéID". Cela signifie que la relation entre "EmployéID" et "ResponsableDépartement" est transitive. Par exemple, l'employé 1 appartient au département "Informatique", dont le responsable est Alice.
 
 <a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
@@ -456,7 +477,13 @@ Si je construis un graphe des dépendances, je dois représenter visuellement le
 
 ### Cas concret :
 
-Dans une table "Produits" avec "ProduitID", "Catégorie", et "ResponsableCatégorie", le graphe montre que "Catégorie" dépend de "ProduitID" et "ResponsableCatégorie" dépend de "Catégorie". Cela permet d'identifier les dépendances fonctionnelles pour améliorer la structure.
+| **ProduitID** | **Catégorie** | **ResponsableCatégorie** |
+| ------------- | ------------- | ------------------------ |
+| 1             | Vêtements     | Alice                    |
+| 2             | Électronique  | Bob                      |
+| 3             | Vêtements     | Alice                    |
+
+Dans cette table "Produits", "Catégorie" dépend de "ProduitID", et "ResponsableCatégorie" dépend de "Catégorie". Par exemple, le produit 1 appartient à la catégorie "Vêtements", dont le responsable est Alice. Cette dépendance est facilement visualisable dans un graphe.
 
 ## Savoir valider un graphe des dépendances :
 
@@ -470,7 +497,13 @@ Si je valide un graphe des dépendances, je dois m'assurer qu'il reflète correc
 
 ### Cas concret :
 
-Dans un graphe décrivant une table "Factures" avec "FactureID", "Client", et "AdresseClient", si "AdresseClient" dépend de "Client", et "Client" de "FactureID", cela doit être indiqué. La validation vérifie que chaque relation est correcte et que les dépendances transitives sont identifiées.
+| **FactureID** | **Client** | **AdresseClient**    |
+| ------------- | ---------- | -------------------- |
+| 1             | Alice      | 10 rue des Lilas     |
+| 2             | Bob        | 20 avenue des Champs |
+| 3             | Carol      | 30 avenue de la Lune |
+
+Dans cette table "Factures", "AdresseClient" dépend de "Client", qui dépend de "FactureID". Cela signifie qu’on ne peut accéder à l’adresse du client que via le client associé à une facture donnée. Par exemple, la facture 1 est liée à Alice, dont l’adresse est "10 rue des Lilas". Si une flèche est incorrecte ou manquante dans le graphe, la validation échoue.
 
 ---
 

@@ -7,8 +7,7 @@
 ## Notes
 
 ```
-CIF : regles de gestion bien goupillés
-CIP: que les propriétés et attributs soient bien respectés
+"Méthode d'Étude et de Réalisation Informatique pour les Systèmes d'Entreprise"
 ```
 
 # Sommaire
