@@ -18,8 +18,6 @@
 
 # MERISE DEFINITION
 
-# Merise Définition
-
 ![border](./assets/line/line-teal-point_l.png)
 
 Merise est une méthode française d'analyse et de conception des systèmes d'information, développée à la fin des années 1970. Le nom "Merise" n'est pas un acronyme, mais certains ont proposé des interprétations telles que
