@@ -12,6 +12,7 @@
 
 - [Dailys 1](./doc/dailys_1.md)
 - [Dailys 2](./doc/dailys_2.md)
+- [Dailys 3](./doc/dailys_3.md)
 
 ![border](./assets/line/line-pink-point_l.png)
 

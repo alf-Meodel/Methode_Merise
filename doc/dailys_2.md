@@ -1,6 +1,4 @@
- <a href="../README.md">
-  <img src="../assets/button/home_page.png" alt="Home page" style="width: 150px; height: auto;">
-</a>
+<a href="../README.md"><img src="../assets/button/home_page.png" alt="Home page" style="width: 150px; height: auto;"></a>
 
 ![border](../assets/line/border_deco_rt.png)
 
@@ -10,8 +8,11 @@
 
 ## Sommaire
 
+- [Objectifs journaliers](#objectifs-journaliers)
 - [Cardinalités](#les-cardinalités)
   - [Lire les Cardinalités](#savoir-lire-les-cardinalités)
+- [Contraintes d'intégrité fonctionnelle](#contraintes-dintégrité-fonctionnelle)
+- [Contraintes d'intégrité physique](#contraintes-dintégrité-physique)
 
 ## Notes
 
@@ -29,49 +30,64 @@ CIP: que les propriétés et attributs soient bien respectés
 
 ### MERISE - Les cardinalités et les contraintes
 
-- [x] Les cardinalités
+- **Les cardinalités**
 - [x] Savoir lire les cardinalités :
 
-  _Si je lis une cardinalité, je dois comprendre combien d'éléments d'une table sont liés à un ou plusieurs éléments d'une autre table._
+      Si je lis une cardinalité, je dois comprendre combien d'éléments d'une table sont liés à un ou plusieurs éléments d'une autre table.
 
 - [x] Savoir écrire les cardinalités :
+
       Si j’écris une cardinalité, je dois indiquer combien d’éléments peuvent être liés entre deux tables (par exemple, un client peut avoir plusieurs commandes, mais une commande est pour un seul client).
 
 - [x] Savoir valider les cardinalités :
+
       Si je valide une cardinalité, je dois m'assurer que les liens entre les éléments sont corrects et qu'ils reflètent bien les besoins du projet.
       Les différents types de contraintes
 
+![border](../assets/line/line-pink-point_r.png)
+
+- **Contraintes d'intégrité fonctionnelle :**
+
 - [x] Savoir définir une contrainte d'intégrité :
+
       Si je définis une contrainte d'intégrité, je dois m'assurer que les données sont correctes et cohérentes en suivant des règles précises.
 
 - [x] Savoir différencier les types de contraintes :
 
-## Contraintes d'intégrité fonctionnelle :
-
-Si je mets une ville, je dois m'assurer qu'elle existe dans la liste des villes autorisées.
+      Si je mets une ville, je dois m'assurer qu'elle existe dans la liste des villes autorisées.
 
 - [x] Contraintes d'intégrité physique :
+
       Si j’utilise une contrainte physique, je dois m’assurer qu’elle est appliquée au niveau du modèle logique de données (MLD).
+
 - [x] Les contraintes d'intégrité fonctionnelle (CIF)
 - [x] Savoir identifier une CIF :
+
       Si j’identifie une CIF, je dois vérifier que chaque donnée dépend d'une autre de manière unique (par exemple, chaque numéro d'étudiant correspond à un seul étudiant).
 
 - [x] Savoir représenter une CIF sur le MCD :
+
       Si je représente une CIF sur le MCD, je dois l’indiquer par une relation qui assure l'unicité de la donnée (par exemple, un étudiant a un seul numéro de carte).
 
 - [x] Savoir valider une CIF :
+
       Si je valide une CIF, je dois m'assurer que la contrainte est respectée dans la base de données et que chaque donnée est bien reliée de manière unique.
 
 - [x] Les contraintes d'intégrité physique
+
 - [x] Savoir identifier une contrainte physique :
+
       Si j'identifie une contrainte physique, je dois m'assurer qu'elle est liée au stockage ou à l’organisation des données pour les protéger.
 
 - [x] Savoir représenter une contrainte physique :
+
       Si je représente une contrainte physique, je dois m'assurer qu'elle est appliquée dans le modèle physique de la base de données pour optimiser les performances ou la sécurité.
 
 - [x] Savoir valider une contrainte physique :
 
-Si je valide une contrainte physique, je dois m’assurer qu’elle fonctionne correctement et ne ralentit pas ou ne compromet pas l’intégrité des données.
+      Si je valide une contrainte physique, je dois m’assurer qu’elle fonctionne correctement et ne ralentit pas ou ne compromet pas l’intégrité des données.
+
+<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
 ![border](../assets/line/line-teal-point_l.png)
 
@@ -150,6 +166,8 @@ Il existe deux types principaux de contraintes dans Merise : les contraintes d'i
 
 Imaginons une bibliothèque où chaque livre a un code unique (comme un code-barres). Si on doit retrouver un livre spécifique, le code unique permet d’être sûr qu’on a le bon livre sans risque de confusion avec un autre. Dans une base de données, ce type de contrainte s’assure que chaque élément important est unique, comme un numéro de carte pour chaque élève.
 
+<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
+
 ![border](../assets/line/line-teal-point_r.png)
 
 ## Contraintes d'intégrité fonctionnelle
@@ -177,6 +195,8 @@ Alors, tu sais que ton ours en peluche doit toujours être dans le coin droit, t
 
 Dans une bibliothèque, chaque livre a un numéro unique pour qu’on sache exactement où le trouver. C’est pareil dans une base de données : chaque donnée doit être unique pour qu’on puisse la retrouver facilement.
 
+<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
+
 ![border](../assets/line/line-teal-point_r.png)
 
 ## Contraintes d'intégrité physique
@@ -201,8 +221,7 @@ Maintenant, imagine une autre règle pour ton coffre de jouets. Elle dit :
 Si tu mets les jouets lourds au-dessus, ils risquent d’écraser les plus légers, ou de tout faire tomber ! Alors, cette règle sert à ranger tes jouets en pensant à leur poids, pour que rien ne se casse. C’est une contrainte d’intégrité physique ! Elle aide à protéger tes jouets en respectant leur poids et leur taille.
 
 ![border](../assets/line/line-teal-point_r.png)
-<a href="#sommaire">
-<img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;">
-</a>
+
+<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
 ![border](../assets/line/border_deco_l.png)
