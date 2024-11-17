@@ -11,8 +11,11 @@
 ## Notes
 
 ```
-CIF : regles de gestion bien goupillés
-CIP: que les propriétés et attributs soient bien respectés
+(1FN) : Assure que chaque valeur dans une cellule est atomique.
+
+(2FN) : Élimine les dépendances partielles (chaque colonne non-clé dépend complètement de la clé primaire).
+
+(3FN) : Élimine les dépendances transitives entre les colonnes non-clés.
 ```
 
 ![border](../assets/line/border_deco_rb.png)
@@ -44,7 +47,24 @@ CIP: que les propriétés et attributs soient bien respectés
   - [x] Savoir construire un graphe des dépendances
   - [x] Savoir valider un graphe des dépendances
 
-![border](../assets/line/line-teal-point_r.png)
+![border](../assets/line/line-pink-point_l.png)
+
+# Tableau recapitulatif
+
+| **Type**                                    | **Explication imagée**                               | **Cas concret**                                                                                   |
+| ------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Comprendre l'importance de la normalisation | "Une bibliothèque bien classée."                     | Réorganiser une base de données pour éliminer les doublons et rendre les informations cohérentes. |
+| Identifier les anomalies de redondance      | "Deux fiches pour un même client."                   | Une adresse client répétée dans plusieurs commandes peut causer des incohérences si elle change.  |
+| Comprendre la 1ère forme normale (1FN)      | "Une boîte contient un seul type d'éléments."        | Une colonne "Téléphones" doit être atomique, sans contenir plusieurs valeurs comme "06, 07".      |
+| Comprendre la 2ème forme normale (2FN)      | "Un cahier d'élèves n'a qu'une liste par page."      | Dans une table "Commandes", "PrixProduit" dépend uniquement de "ProduitID", pas de la commande.   |
+| Comprendre la 3ème forme normale (3FN)      | "Un arbre sans branches inutiles."                   | "ResponsableDépartement" dépend de "Département", pas directement de "EmployéID".                 |
+| Identifier les DF élémentaires              | "Une clé ouvre une serrure."                         | "Nom" dépend directement de "ÉtudiantID" dans une table "Étudiants".                              |
+| Identifier les DF composées                 | "Deux clés ouvrent une boîte."                       | "Note" dépend de "ÉtudiantID" et "CoursID" dans une table "Notes".                                |
+| Identifier les DF transitives               | "Une clé ouvre une boîte qui en contient une autre." | "ResponsableDépartement" dépend de "Département", qui dépend de "EmployéID".                      |
+| Construire un graphe des dépendances        | "Un schéma d'organisation d'entreprise."             | Dans une table "Produits", le graphe montre que "Catégorie" dépend de "ProduitID".                |
+| Valider un graphe des dépendances           | "Vérifiez que les flèches mènent au bon endroit."    | Valider une table "Factures" : "AdresseClient" dépend de "Client", qui dépend de "FactureID".     |
+
+![border](../assets/line/border_deco_l.png)
 
 # Introduction à la normalisation
 
@@ -54,19 +74,35 @@ CIP: que les propriétés et attributs soient bien respectés
 Si je comprends l'importance de la normalisation, je peux identifier et réduire les anomalies dans une base de données pour améliorer sa cohérence.
 ```
 
+### Explication imagée :
+
+"Imagine une bibliothèque où les livres sont mal classés et doublés." La normalisation organise les données pour éliminer les redondances et améliorer leur cohérence.
+
+### Cas concret :
+
+Dans une base d'école, chaque classe possède une liste d'étudiants. Si le même étudiant est inscrit dans plusieurs classes avec des doublons de données personnelles, cela cause des erreurs et du gaspillage d'espace. La normalisation élimine ces doublons en séparant les informations des étudiants et des classes dans des tables liées.
+
 ## Savoir identifier les anomalies de redondance
 
 ```
 Si je repère une redondance, je dois m'assurer qu'elle peut être éliminée en décomposant les données sans perdre d'information
 ```
 
+### Explication imagée :
+
+"Deux fiches pour le même client avec des adresses différentes." Les anomalies de redondance entraînent des erreurs lors de l'ajout, de la suppression ou de la mise à jour de données.
+
+### Cas concret :
+
+Dans une base de gestion de commandes, si l'adresse d’un client est stockée dans chaque commande, toute modification de l’adresse nécessite la mise à jour de toutes les commandes. Sinon, des incohérences apparaissent. La normalisation permet de déplacer l’adresse dans une table séparée "Clients".
+
 ## Définition
 
-- La normalisation est le processus qui permet d’organiser les données dans une base pour éviter la duplication, améliorer l’efficacité et garantir la cohérence des informations.
+La normalisation est le processus qui permet d’organiser les données dans une base pour éviter la duplication, améliorer l’efficacité et garantir la cohérence des informations.
 
-- Elle permet de réduire les risques d’erreurs et de faciliter les mises à jour et la maintenance des données.
+Elle permet de réduire les risques d’erreurs et de faciliter les mises à jour et la maintenance des données.
 
-## Rien ne vaut un bon exemple
+## Rien ne vaut un Bon exemple
 
 ## Table Problématique (Avant Normalisation)
 
@@ -133,19 +169,20 @@ Pour corriger ces problèmes, on va normaliser la base de données. Voici ce qu�
 
 ## Avantages après la normalisation :
 
-#### Réduction de la redondance :
+### Réduction de la redondance :
 
 L’adresse de Alice n’apparaît qu’une seule fois dans la table Clients.
 Le titre du livre "Harry Potter" apparaît uniquement dans la table Livres, et non plus plusieurs fois dans la table des emprunts.
-#### Facilité de mise à jour :
+
+### Facilité de mise à jour :
 
 Si Alice change d’adresse, il suffit de la mettre à jour dans une seule ligne de la table Clients. Pas besoin de modifier plusieurs lignes dans la table des emprunts.
 
-#### Gestion plus simple :
+### Gestion plus simple :
 
 Les informations sont organisées. Si tu veux savoir quels livres Alice a empruntés, tu peux consulter la table Emprunts en liant l’ID Client à la table Clients et l’ID Livre à la table Livres. C’est beaucoup plus simple à gérer et à mettre à jour.
 
-#### Conclusion Définition
+### Conclusion Définition
 La normalisation permet d’organiser les données de manière plus logique et efficace. Grâce à cela, tu évites de répéter des informations, tu réduis les erreurs possibles et tu facilites les mises à jour. C’est un peu comme ranger tes jouets dans des boîtes distinctes pour ne pas avoir un bazar dans ta chambre !
 
 <a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
@@ -156,11 +193,15 @@ La normalisation permet d’organiser les données de manière plus logique et e
 
 ![border](../assets/line/line-teal-point_r.png)
 
-## Cas concret
+## Comprendre la 1ère forme normale (1FN)
 
-### Base de données des commandes dans un magasin
+### Explication imagée :
 
-Imaginons qu’on gère une base de données pour un magasin qui enregistre les commandes de ses clients. La table suivante contient des informations sur les commandes passées par les clients, les produits achetés et les quantités.
+"Une boîte de rangement ne contient qu'un seul type d'éléments." La 1FN impose que chaque colonne ait des valeurs atomiques (non divisibles).
+
+### Cas concret :
+
+Une table contenant une colonne "Téléphones" avec des valeurs comme "06-12-34-56-78, 07-98-76-54-32" viole la 1FN. La 1FN exige une nouvelle ligne pour chaque numéro de téléphone, rendant les données plus exploitables et cohérentes.
 
 ## Table non normalisée (avant d’appliquer les formes normales) :
 
@@ -215,13 +256,19 @@ La table ci-dessus respecte déjà la 1ère forme car chaque colonne contient de
 Si je valide la 2FN, je dois m'assurer qu'il n'y a aucune dépendance partielle entre les attributs d'une table et sa clé primaire.
 ```
 
-#### Définition de la 2ème forme normale (2FN) :
+### Explication imagée :
+
+"Un cahier d'élèves n'a qu'une seule liste par page." La 2FN supprime les dépendances partielles entre une colonne non clé et une partie d’une clé primaire.
+
+### Cas concret :
+
+Une table "Commandes" avec une clé primaire composée de "CommandeID" et "ProduitID", où "PrixProduit" dépend uniquement de "ProduitID", viole la 2FN. La 2FN exige de séparer les produits dans une table à part, liée par "ProduitID".
+
+---
+
+### Définition :
 
 Une table est en 2ème forme normale (2FN) si elle est déjà en 1ère forme normale (1FN) et que toutes les colonnes non-clés dépendent entièrement de la clé primaire. En d’autres termes, il ne doit pas y avoir de dépendances partielles.
-
-### Clé primaire :
-
-une clé qui permet d'identifier de manière unique chaque ligne de la table. Ici, ID Commande peut être une clé primaire, mais il y a une dépendance partielle (par exemple, l’adresse du client dépend du Client, et non de la commande).
 
 ## Problèmes dans la table actuelle :
 
@@ -264,7 +311,7 @@ Une table produits contenant les détails du produit acheté.
 
 ### Avantages de la 2FN :
 
-##### Suppression de la redondance :
+### Suppression de la redondance :
 
 L’adresse du client est maintenant séparée dans une table Clients. Si Alice déménage, on n’a plus besoin de mettre à jour chaque ligne de commande, juste la ligne correspondante dans la table des Clients.
 La table est maintenant plus efficace et plus facile à maintenir.
@@ -279,11 +326,23 @@ La table est maintenant plus efficace et plus facile à maintenir.
 Si je valide la 3FN, je dois m'assurer qu'il n'y a aucune dépendance transitive entre les attributs d'une table et sa clé primaire.
 ```
 
-### Définition de la 3ème forme normale (3FN) :
+### Explication imagée :
+
+"Un arbre de famille sans branches inutiles." La 3FN élimine les dépendances transitives, où une colonne dépend d'une autre colonne non clé via une colonne intermédiaire.
+
+### Cas concret :
+
+Dans une table "Employés" avec "EmployéID", "Département", et "ResponsableDépartement", si "ResponsableDépartement" dépend de "Département", cela viole la 3FN. La 3FN impose de créer une table séparée "Départements".
+
+---
+
+### Définition :
 
 Une table est en 3ème forme normale (3FN) si elle est déjà en 2ème forme normale (2FN) et qu’il n’y a pas de dépendances transitives entre les colonnes non-clés.
 
 Une dépendance transitive se produit quand une colonne non-clé dépend d’une autre colonne non-clé via une clé primaire.
+
+---
 
 ### Problèmes dans la table actuelle (en 2FN) :
 
@@ -291,7 +350,7 @@ Dans la table Commandes, nous avons une dépendance transitive :
 
 Prix Unitaire dépend de Produit, mais Produit dépend de ID Commande (via la table des produits). Donc, Prix Unitaire est transitivement dépendant de ID Commande via Produit.
 
-## Solution pour passer à la 3FN :
+### Solution pour passer à la 3FN :
 
 Séparer l’information sur les produits dans une table distincte.
 Prix Unitaire ne doit pas être dans la table Commandes. Il doit être enregistré dans une table Produits indépendante.
@@ -333,21 +392,6 @@ Prix Unitaire ne doit pas être dans la table Commandes. Il doit être enregistr
 Les informations sur le prix sont séparées de la table Commandes et sont gérées dans la table Produits.
 Chaque table contient uniquement des informations qui dépendent directement de la clé primaire, ce qui permet de mieux organiser la base et de faciliter sa gestion.
 
-### Conclusion :
-
-#### 1ère forme normale (1FN) :
-
-Assure que chaque valeur dans une cellule est atomique.
-
-#### 2ème forme normale (2FN) :
-
-Élimine les dépendances partielles (chaque colonne non-clé dépend complètement de la clé primaire).
-
-#### 3ème forme normale (3FN) :
-
-Élimine les dépendances transitives entre les colonnes non-clés.
-Ces étapes de normalisation permettent de rendre la base de données plus efficace, cohérente, et plus facile à maintenir.
-
 <a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
 ![border](../assets/line/line-teal-point_r.png)
@@ -360,28 +404,13 @@ Ces étapes de normalisation permettent de rendre la base de données plus effic
 Si j'identifie une dépendance fonctionnelle élémentaire, je dois m'assurer qu'un attribut dépend uniquement d'une autre colonne.
 ```
 
-Une dépendance fonctionnelle élémentaire (DF élémentaire) implique un seul attribut (ou ensemble minimal d'attributs) qui détermine un autre attribut.
+### Explication imagée :
 
-### Exemple concret :
+"Une clé ouvre une seule serrure." Une DF élémentaire relie une colonne à une autre de manière directe.
 
-Imaginons une table Étudiants avec les colonnes :
+### Cas concret :
 
-ID Étudiant
-Nom
-Prénom
-Matière
-On peut avoir la dépendance suivante :
-
-Copier le code
-ID Étudiant → Nom
-Cela signifie que l'ID Étudiant détermine de manière unique le Nom de l'étudiant.
-
-Ici, la DF élémentaire est une relation simple entre un seul attribut (ID Étudiant) et un autre attribut (Nom).
-
-Autre exemple :
-Copier le code
-Matière → Professeur
-Cela signifie qu'une matière détermine un seul professeur.
+Dans une table "Étudiants" avec "ÉtudiantID" et "Nom", "Nom" dépend directement de "ÉtudiantID". Cela signifie que chaque "ÉtudiantID" détermine un seul "Nom". C'est une DF élémentaire.
 
 ## Savoir identifier les DF composées
 
@@ -389,24 +418,13 @@ Cela signifie qu'une matière détermine un seul professeur.
 Si j'identifie une dépendance fonctionnelle composée, je dois vérifier qu'elle implique plusieurs attributs pour déterminer une valeur.
 ```
 
-Une dépendance fonctionnelle composée est une dépendance fonctionnelle dans laquelle un ensemble d'attributs détermine un autre attribut. Il ne s'agit pas d'une dépendance entre un seul attribut, mais d'un groupe d'attributs.
+### Explication imagée :
 
-Exemple concret :
-Imaginons une table Ventes avec les colonnes :
+"Deux clés nécessaires pour ouvrir une boîte." Une DF composée implique plusieurs colonnes dans la détermination d’une valeur.
 
-ID Vente
-ID Produit
-Quantité
-Prix Unitaire
-Montant
-On peut avoir la dépendance suivante :
+### Cas concret :
 
-scss
-Copier le code
-(ID Vente, ID Produit) → Montant
-Cela signifie que l'ensemble d'attributs (ID Vente et ID Produit) détermine de manière unique le Montant de la vente.
-
-Ici, il ne s'agit pas d'une seule colonne déterminant une autre, mais bien de deux attributs combinés qui déterminent une autre colonne.
+Dans une table "Notes" avec "ÉtudiantID", "CoursID", et "Note", la DF "Note" dépend de la combinaison "ÉtudiantID" et "CoursID". Aucune de ces colonnes seules ne détermine "Note". C’est une DF composée.
 
 ## Savoir identifier les DF transitives
 
@@ -414,61 +432,45 @@ Ici, il ne s'agit pas d'une seule colonne déterminant une autre, mais bien de d
 Si j'identifie une dépendance fonctionnelle transitive, je dois m'assurer qu'un attribut dépend indirectement de la clé primaire via un autre attribut.
 ```
 
-Une dépendance fonctionnelle transitive se produit lorsqu'un attribut dépend d'un autre attribut via un troisième attribut. En d'autres termes, une colonne A détermine B, et B détermine C. Par conséquent, on peut dire que A détermine C, mais ce lien est indirect.
+### Explication imagée :
 
-Exemple concret :
-Imaginons une table Commandes avec les colonnes :
+"Une clé ouvre une boîte qui en contient une autre." Une DF transitive relie deux colonnes via une colonne intermédiaire.
 
-ID Commande
-ID Client
-Nom Client
-Adresse Client
-On a les dépendances suivantes :
+### Cas concret :
 
-ID Commande → ID Client (chaque commande est associée à un client unique)
-ID Client → Nom Client (un client est identifié par son nom)
-ID Client → Adresse Client (un client est associé à une adresse)
-La dépendance transitive est donc :
-
-arduino
-Copier le code
-ID Commande → Nom Client
-Bien que l'ID Commande détermine directement l'ID Client, et que ID Client détermine Nom Client, il y a une dépendance indirecte de ID Commande → Nom Client par le biais de ID Client.
-
-Autre exemple de dépendance transitive :
-Copier le code
-Matricule → Nom
-Nom → Salaire
-Cela signifie que Matricule → Nom, et que Nom → Salaire. Par transitivité, Matricule → Salaire, bien que Matricule ne détermine pas directement Salaire.
-
-Résumé des types de dépendances fonctionnelles
-DF élémentaire : Une seule colonne détermine une autre colonne.
-
-Exemple : ID Étudiant → Nom
-DF composée : Un ensemble d'attributs détermine une autre colonne.
-
-Exemple : (ID Vente, ID Produit) → Montant
-DF transitive : Une dépendance indirecte entre deux attributs via un troisième attribut.
-
-Exemple : ID Commande → Nom Client (via ID Client)
-Conclusion :
-Comprendre les dépendances fonctionnelles est essentiel pour bien structurer une base de données. Cela permet de mieux organiser les données, de prévenir les anomalies, et de garantir l'intégrité de la base en respectant les formes normales.
+Dans une table "Employés" avec "EmployéID", "Département", et "ResponsableDépartement", "ResponsableDépartement" dépend de "Département", qui dépend de "EmployéID". La relation entre "EmployéID" et "ResponsableDépartement" est transitive.
 
 <a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
 ## Le Graphe des dépendances
 
-## Savoir construire un graphe des dépendances :
+### Savoir construire un graphe des dépendances :
 
 ```
 Si je construis un graphe des dépendances, je dois représenter visuellement les relations entre les attributs pour en faciliter l’analyse.
 ```
+
+### Explication imagée :
+
+"Un schéma d'organisation d'entreprise." Construire un graphe des dépendances, c’est représenter visuellement comment les colonnes d’une table dépendent les unes des autres.
+
+### Cas concret :
+
+Dans une table "Produits" avec "ProduitID", "Catégorie", et "ResponsableCatégorie", le graphe montre que "Catégorie" dépend de "ProduitID" et "ResponsableCatégorie" dépend de "Catégorie". Cela permet d'identifier les dépendances fonctionnelles pour améliorer la structure.
 
 ## Savoir valider un graphe des dépendances :
 
 ```
 Si je valide un graphe des dépendances, je dois m'assurer qu'il reflète correctement toutes les relations de dépendance fonctionnelle de la table.
 ```
+
+### Explication imagée :
+
+"Vérifiez que toutes les flèches mènent au bon endroit." Valider un graphe des dépendances, c’est s’assurer qu’il reflète toutes les relations logiques correctes.
+
+### Cas concret :
+
+Dans un graphe décrivant une table "Factures" avec "FactureID", "Client", et "AdresseClient", si "AdresseClient" dépend de "Client", et "Client" de "FactureID", cela doit être indiqué. La validation vérifie que chaque relation est correcte et que les dépendances transitives sont identifiées.
 
 ---
 

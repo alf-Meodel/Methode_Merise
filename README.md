@@ -17,9 +17,9 @@ CIP: que les propriétés et attributs soient bien respectés
 
 # Navigation
 
-- [Dailys 1](./doc/dailys_1.md)
-- [Dailys 2](./doc/dailys_2.md)
-- [Dailys 3](./doc/dailys_3.md)
+- [D1. Introduction à la méthode MERISE et au MCD](./doc/dailys_1.md)
+- [D2. Les cardinalités et les contraintes](./doc/dailys_2.md)
+- [D3. Normalisation et dépendances fonctionnelles](./doc/dailys_3.md)
 
 ![border](./assets/line/line-pink-point_l.png)
 

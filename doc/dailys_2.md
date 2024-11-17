@@ -41,6 +41,17 @@ CIP: que les propriétés et attributs soient bien respectés
   - [x] Savoir représenter une contrainte physique :
   - [x] Savoir valider une contrainte physique :
 
+![border](../assets/line/line-pink-point_r.png)
+
+## TABLEAU DES CONTRAINTES RECAP
+
+| **Type**                     | **Explication imagée**                              | **Cas concret**                                                                   |
+| ---------------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Définir une contrainte       | "Un train doit avoir un conducteur."                | Un train doit être associé à un conducteur dans la base de données d'une gare.    |
+| Différencier les contraintes | "Catégorie logique vs format technique."            | Fonctionnelle : Produit lié à Catégorie. Physique : Prix > 0.                     |
+| Fonctionnelle                | "Une facture est liée à un client."                 | Une facture ne peut exister sans un client associé dans la base.                  |
+| Physique                     | "Le mot de passe doit avoir au moins 8 caractères." | Le champ "Mot de passe" doit être non nul et respecter des contraintes de format. |
+
 ![border](../assets/line/border_deco_l.png)
 
 # Les Cardinalités
@@ -49,32 +60,47 @@ CIP: que les propriétés et attributs soient bien respectés
 
 ## Savoir lire les cardinalités
 
-**Lire les cardinalités signifie comprendre les relations entre les entités dans un MCD, notamment :**
+**Lire les cardinalités signifie comprendre les relations entre les entités dans un MCD :**
 
 ```
   Si je lis une cardinalité, je dois comprendre combien d'éléments d'une table sont liés à un ou plusieurs éléments d'une autre table.
 ```
 
-![border](../assets/line/line-teal-point_r.png)
+### Explication imagée :
 
-### Interpréter les symboles :
+"Un client peut passer plusieurs commandes, mais un produit ne peut appartenir qu'à une seule catégorie." Lire les cardinalités, c'est comprendre le nombre minimum et maximum d'interactions entre les entités.
 
-Les cardinalités sont souvent indiquées entre parenthèses, comme (0,1), (1,1), (0,n), (1,n). Le premier chiffre représente la cardinalité minimale (le nombre minimum de fois où une instance d'une entité peut être associée à une autre entité), et le deuxième chiffre représente la cardinalité maximale (le nombre maximum de fois où une instance d'une entité peut être associée à l'autre entité).
+### Cas concret :
 
-![border](../assets/line/line-teal-point_r.png)
+Prenons un magasin. La relation entre "Client" et "Commande" a une cardinalité (1,n) : un client passe au moins une commande (1) et peut en passer plusieurs (n). Du côté de "Commande", la cardinalité est (1,1) : une commande appartient à un client unique. Cela garantit qu'il n'y a pas de commande sans client.
 
 ### Exemples :
 
 **(0,1) :** Une occurrence d'une entité peut être associée à zéro ou une occurrence d'une autre entité (relation optionnelle et unique).
+
 **(1,n) :** Une occurrence d'une entité doit être associée à au moins une occurrence de l'autre entité, mais peut l’être plusieurs fois (relation obligatoire et multiple).
+
 **(0,n) :** Une occurrence d'une entité peut être associée à zéro, une, ou plusieurs occurrences de l'autre entité (relation optionnelle et multiple).
+
 **(1,1) :** Une occurrence d'une entité est associée obligatoirement à une seule occurrence de l'autre entité (relation obligatoire et unique).
+
+![border](../assets/line/line-teal-point_r.png)
 
 ## Savoir écrire les cardinalités
 
 ```
 Si j’écris une cardinalité, je dois indiquer combien d’éléments peuvent être liés entre deux tables (par exemple, un client peut avoir plusieurs commandes, mais une commande est pour un seul client).
 ```
+
+### Explication imagée :
+
+"Un livre est toujours dans une bibliothèque, mais une bibliothèque peut avoir plusieurs livres." Écrire les cardinalités, c'est traduire les règles métier en min/max pour chaque entité.
+
+### Cas concret :
+
+Dans une université, une relation "Cours-Étudiant" avec une cardinalité (1,n) pour "Étudiant" signifie qu'un étudiant suit au moins un cours et peut en suivre plusieurs. La cardinalité (1,30) pour "Cours" indique qu'un cours doit avoir au moins un étudiant inscrit, mais pas plus de 30.
+
+---
 
 ### Pour écrire correctement les cardinalités dans un MCD, il faut :
 
@@ -95,17 +121,29 @@ Si je valide une cardinalité, je dois m'assurer que les liens entre les éléme
 Les différents types de contraintes
 ```
 
+### Explication imagée :
+
+"Un employé doit appartenir à un service, mais un service peut exister sans employé." Valider les cardinalités, c'est vérifier qu'elles respectent les règles métier sans contradiction.
+
+### Cas concret :
+
+Dans une entreprise, la relation "Service-Employé" avec une cardinalité (1,n) pour "Employé" signifie qu'un employé doit obligatoirement être affecté à un service. Si un service est vide (0,n), cela respecte la règle métier. Tester la cardinalité garantit que les bases de données empêchent une incohérence.
+
+---
+
+### Définition :
+
 La validation des cardinalités consiste à vérifier que les cardinalités définies respectent les règles métier et garantissent la logique et la cohérence du modèle.
 
-#### Vérifier les exigences du domaine :
+### Vérifier les exigences du domaine :
 
 Assurez-vous que chaque cardinalité respecte les contraintes de votre domaine métier. Par exemple, si une règle impose qu'un employé doit être affecté à au moins un département, une cardinalité (0,n) ne conviendrait pas ; il faudrait une cardinalité (1,n) pour respecter cette règle.
 
-#### Testez des scénarios :
+### Testez des scénarios :
 
 En simulant des cas concrets, vous pouvez valider si les cardinalités permettent bien toutes les situations réelles possibles. Par exemple, si une relation est (1,1), vérifiez qu’il n'existe pas de cas d’utilisation où l’association devrait être optionnelle.
 
-#### Respecter la cohérence :
+### Respecter la cohérence :
 
 Les cardinalités doivent garantir l’intégrité du modèle ; elles ne doivent ni être trop restrictives ni trop permissives. Assurez-vous que les valeurs définies ne créent pas d'incohérences logiques dans le modèle.
 
@@ -125,92 +163,139 @@ En maîtrisant la lecture, l’écriture et la validation des cardinalités, on 
 Si je définis une contrainte d'intégrité, je dois m'assurer que les données sont correctes et cohérentes en suivant des règles précises.
 ```
 
-Une contrainte d'intégrité est une règle qui garantit que les données dans la base de données respectent certaines conditions pour qu'elles soient valides et cohérentes. Ces contraintes permettent de s'assurer que les informations stockées sont logiques, sans erreurs et respectent des règles précises.
+### Explication imagée :
+
+"Un train doit toujours avoir un conducteur pour partir." Une contrainte d'intégrité impose des règles qui assurent la cohérence des données entre deux entités ou au sein d'une entité.
+
+### Cas concret :
+
+Dans une base de données d'une gare, une contrainte impose qu'un "Train" doit avoir un conducteur attribué dans la table "Conducteurs". Si un train est ajouté sans conducteur, ou si le conducteur est supprimé sans mise à jour, cela viole la contrainte. Une contrainte d'intégrité évite cette incohérence.
 
 ![border](../assets/line/line-teal-point_r.png)
 
 ## Savoir différencier les types de contraintes
 
-![border](../assets/line/line-teal-point_r.png)
-
 ```
  Si je mets une ville, je dois m'assurer qu'elle existe dans la liste des villes autorisées.
 ```
 
-Il existe deux types principaux de contraintes dans Merise : les contraintes d'intégrité fonctionnelle et les contraintes d'intégrité physique. Elles jouent un rôle complémentaire dans la gestion et la validation des données.
-
-#### Cas concret :
-
-Imaginons une bibliothèque où chaque livre a un code unique (comme un code-barres). Si on doit retrouver un livre spécifique, le code unique permet d’être sûr qu’on a le bon livre sans risque de confusion avec un autre. Dans une base de données, ce type de contrainte s’assure que chaque élément important est unique, comme un numéro de carte pour chaque élève.
-
 ### Définition :
 
-Les contraintes d'intégrité fonctionnelle (CIF) définissent les règles métiers ou les relations logiques que doivent respecter les données pour rester cohérentes avec le modèle conceptuel. Ces contraintes sont souvent liées à des règles métier spécifiques et sont définies dans le modèle conceptuel de données (MCD). Elles incluent :
+Il existe deux types principaux de contraintes dans Merise : les contraintes d'intégrité fonctionnelle et les contraintes d'intégrité physique. Elles jouent un rôle complémentaire dans la gestion et la validation des données.
 
-- Unicité : assure qu’une donnée est unique dans la base, comme un numéro de sécurité sociale.
-- Validation de valeurs : impose des limites ou des valeurs spécifiques, comme une contrainte pour des dates de naissance ou des codes postaux.
-- Relations obligatoires : garantit qu'une entité doit être associée à une autre. Par exemple, un employé doit être affecté à un département.
+### Explication imagée :
 
-  Ces contraintes sont plus abstraites et reflètent les spécificités du domaine métier. Elles n’ont pas de lien direct avec la structure physique de la base de données mais influencent sa logique.
-
-  ### Vulgarisation
-
-  Imagine que tu as un coffre où tu ranges tous tes jouets. Tu décides de créer une règle pour t’aider à tout garder en ordre. Cette règle dit :
-  "Chaque jouet doit avoir sa propre place unique dans le coffre."
-
-Alors, tu sais que ton ours en peluche doit toujours être dans le coin droit, tes voitures doivent être dans la boîte rouge, et ta poupée doit être sur l'étagère du milieu. Cette règle, c'est comme une contrainte d'intégrité fonctionnelle ! Elle aide à s'assurer que chaque jouet a un endroit spécial et qu’on ne se trompe pas en les rangeant.
+"Un produit appartient à une catégorie (fonctionnelle) et son prix doit être positif (physique)." **Les contraintes fonctionnelles assurent la logique métier**, tandis que **les contraintes physiques imposent des règles sur le format et les valeurs des données**.
 
 ### Cas concret :
 
-Dans une bibliothèque, chaque livre a un numéro unique pour qu’on sache exactement où le trouver. C’est pareil dans une base de données : chaque donnée doit être unique pour qu’on puisse la retrouver facilement.
+### Dans un système e-commerce :
+
+- **Contrainte fonctionnelle :**
+
+  "Un produit doit appartenir à une catégorie." Cela impose une relation logique entre "Produit" et "Catégorie".
+
+- **Contrainte physique :**
+
+  "Le prix du produit doit être un nombre positif." Cette contrainte vérifie que la valeur du champ "Prix" est correcte en termes de format et de contenu.
 
 <a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
+![border](../assets/line/line-pink-point_l.png)
+
+# Les contraintes d'intégrité fonctionnelle (CIF)
+
 ![border](../assets/line/line-teal-point_r.png)
 
-## Les contraintes d'intégrité fonctionnelle (CIF)
-
-### Savoir identifier une CIF :
+## Savoir identifier une CIF :
 
       Si j’identifie une CIF, je dois vérifier que chaque donnée dépend d'une autre de manière unique (par exemple, chaque numéro d'étudiant correspond à un seul étudiant).
 
-### Savoir représenter une CIF sur le MCD :
+### Explication imagée :
 
-      Si je représente une CIF sur le MCD, je dois l’indiquer par une relation qui assure l'unicité de la donnée (par exemple, un étudiant a un seul numéro de carte).
+"Paris ne peut exister sans la France." Une CIF garantit qu'une donnée (ex. ville) est logique et dépend d'une autre (ex. pays) selon une règle métier.
 
-### Savoir valider une CIF :
+### Cas concret :
 
-      Si je valide une CIF, je dois m'assurer que la contrainte est respectée dans la base de données et que chaque donnée est bien reliée de manière unique.
-
-## Contraintes d'intégrité physique
+Dans une base de données, si "Ville" est reliée à "Pays", une CIF stipule qu'une ville doit toujours être liée à un pays valide. Par exemple, si "Paris" est associée à "France", la suppression de "France" rendrait "Paris" incohérente. Une CIF empêche donc cette situation.
 
 ![border](../assets/line/line-teal-point_r.png)
 
-```
- Si j’utilise une contrainte physique, je dois m’assurer qu’elle est appliquée au niveau du modèle logique de données (MLD).
-```
+## Savoir représenter une CIF sur le MCD :
 
-### Definition
+      Si je représente une CIF sur le MCD, je dois l’indiquer par une relation qui assure l'unicité de la donnée (par exemple, un étudiant a un seul numéro de carte).
 
-Les contraintes d'intégrité physique sont des règles qui assurent l'intégrité des données au niveau de la base physique, en garantissant la structure et la relation entre les tables. Elles sont définies au niveau du modèle logique de données (MLD) et sont mises en œuvre dans le modèle physique de données (MPD). Elles incluent :
+### Explication imagée :
 
-- Clé primaire : une contrainte d'unicité et d'identification pour chaque ligne d’une table.
-- Clé étrangère : assure la relation entre deux tables et garantit que les valeurs d'une table sont conformes aux valeurs de référence d'une autre table (par exemple, un département existant auquel un emsployé est affecté).
+"Chaque ville est rattachée à un pays dans le MCD." Représenter une CIF, c'est utiliser une relation avec des cardinalités pour illustrer cette dépendance logique.
 
-- Non nullité : impose que certains attributs (champs) doivent contenir une valeur non nulle, assurant que certaines informations sont toujours présentes dans la base.
-  Les contraintes d'intégrité physique sont appliquées pour maintenir les données correctement reliées et éviter les incohérences, comme la suppression d’un enregistrement référencé.
+### Cas concret :
 
-### Savoir identifier une contrainte physique :
+Dans le MCD, la relation entre "Ville" et "Pays" est représentée par une entité "Ville" reliée à "Pays" avec une cardinalité (1,1) pour "Pays" et (0,n) pour "Ville". Cela signifie qu'un pays peut exister sans ville, mais une ville doit appartenir à un seul pays.
 
-      Si j'identifie une contrainte physique, je dois m'assurer qu'elle est liée au stockage ou à l’organisation des données pour les protéger.
+![border](../assets/line/line-teal-point_r.png)
 
-### Savoir représenter une contrainte physique :
+## Savoir valider une CIF :
+
+      Si je valide une CIF, je dois m'assurer que la contrainte est respectée dans la base de données et que chaque donnée est bien reliée de manière unique.
+
+### Explication imagée :
+
+"Supprimer la France doit empêcher de garder Paris." Valider une CIF, c'est tester qu'une règle métier logique est bien appliquée dans le système.
+
+### Cas concret :
+
+Pour valider la CIF "Une ville doit appartenir à un pays", testez dans la base qu'il est impossible d'insérer une ville sans pays existant. Par exemple, ajouter "Paris" sans "France" ou supprimer "France" tout en gardant "Paris" doit être interdit par la CIF.
+
+<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
+
+![border](../assets/line/line-pink-point_l.png)
+
+# Contraintes d'intégrité physique
+
+![border](../assets/line/line-teal-point_r.png)
+
+## Savoir identifier une contrainte physique :
+
+      Si j'identifie une contrainte physique, je dois m'assurer qu'elle est liée au stockage ou à l’organisation des données pour les protéger.(MLD ?)
+
+### Explication imagée :
+
+"Le code postal doit avoir 5 chiffres." Une contrainte physique impose des limites techniques ou de format à une donnée.
+
+### Cas concret :
+
+Dans une base de données, le champ "Code Postal" a une contrainte physique "INTEGER(5)" qui limite sa longueur à 5 chiffres. Cela empêche l'insertion de valeurs incorrectes, comme "123" ou "ABCDE", garantissant ainsi la validité des données.
+
+![border](../assets/line/line-teal-point_r.png)
+
+## Savoir représenter une contrainte physique :
 
       Si je représente une contrainte physique, je dois m'assurer qu'elle est appliquée dans le modèle physique de la base de données pour optimiser les performances ou la sécurité.
 
-### Savoir valider une contrainte physique :
+### Explication imagée :
+
+"Chaque produit a un prix positif." Représenter une contrainte physique, c'est utiliser des types de données et des validations pour appliquer ces restrictions.
+
+### Cas concret :
+
+Dans le Modèle Physique de Données (MPD), un champ "Prix" est défini comme DECIMAL(10,2) NOT NULL CHECK (Prix > 0). Cela signifie que le prix doit être un nombre décimal, ne peut pas être vide, et doit être strictement positif. Ces règles sont directement implémentées dans la base.
+
+![border](../assets/line/line-teal-point_r.png)
+
+## Savoir valider une contrainte physique :
 
       Si je valide une contrainte physique, je dois m’assurer qu’elle fonctionne correctement et ne ralentit pas ou ne compromet pas l’intégrité des données.
+
+### Explication imagée :
+
+"Le système refuse un code postal à 4 chiffres." Valider une contrainte physique, c'est tester que les données incorrectes sont bien rejetées.
+
+### Cas concret :
+
+Pour valider la contrainte "Prix > 0", essayez d'insérer un produit avec un prix de -5 ou 0 dans la base. La base doit rejeter ces valeurs. De même, si un champ "Nom" est "NOT NULL", insérer un produit sans nom doit être interdit. Ces tests confirment que les contraintes physiques fonctionnent.
+
+![border](../assets/line/line-pink-point_r.png)
 
 <a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
