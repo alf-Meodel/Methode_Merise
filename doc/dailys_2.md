@@ -32,13 +32,7 @@ CIP: que les propriétés et attributs soient bien respectés
 
 - **Les cardinalités**
 - [x] Savoir lire les cardinalités :
-
-      Si je lis une cardinalité, je dois comprendre combien d'éléments d'une table sont liés à un ou plusieurs éléments d'une autre table.
-
 - [x] Savoir écrire les cardinalités :
-
-      Si j’écris une cardinalité, je dois indiquer combien d’éléments peuvent être liés entre deux tables (par exemple, un client peut avoir plusieurs commandes, mais une commande est pour un seul client).
-
 - [x] Savoir valider les cardinalités :
 
       Si je valide une cardinalité, je dois m'assurer que les liens entre les éléments sont corrects et qu'ils reflètent bien les besoins du projet.
@@ -99,6 +93,10 @@ CIP: que les propriétés et attributs soient bien respectés
 
 **Lire les cardinalités signifie comprendre les relations entre les entités dans un MCD, notamment :**
 
+```
+  Si je lis une cardinalité, je dois comprendre combien d'éléments d'une table sont liés à un ou plusieurs éléments d'une autre table.
+```
+
 ![border](../assets/line/line-teal-point_r.png)
 
 ### Interpréter les symboles :
@@ -116,7 +114,11 @@ Les cardinalités sont souvent indiquées entre parenthèses, comme (0,1), (1,1)
 
 ## Savoir écrire les cardinalités
 
-Pour écrire correctement les cardinalités dans un MCD, il faut :
+```
+Si j’écris une cardinalité, je dois indiquer combien d’éléments peuvent être liés entre deux tables (par exemple, un client peut avoir plusieurs commandes, mais une commande est pour un seul client).
+```
+
+### Pour écrire correctement les cardinalités dans un MCD, il faut :
 
 #### Analyser les règles métier :
 

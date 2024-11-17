@@ -4,14 +4,9 @@
 
 ![border](../assets/line/border_deco_rt.png)
 
-# Dailys 3
+# Dailys 3 MERISE
 
 ![border](../assets/line/line-pink-point_l.png)
-
-## Sommaire
-
-- [Exemple de Normalisation](#exemple-de-normalisation)
-- [Attaque Normalisation](#attaque-normalisation-)
 
 ## Notes
 
@@ -22,13 +17,11 @@ CIP: que les propriétés et attributs soient bien respectés
 
 ![border](../assets/line/border_deco_rb.png)
 
-# Objectifs journaliers
+# Normalisation et dépendances fonctionnelles
+
+## Sommaire
 
 ![border](../assets/line/line-pink-point_r.png)
-
-#### Vendredi 15/11/2024 :
-
-### MERISE - Normalisation et dépendances fonctionnelles
 
 - [x] [Introduction à la normalisation](#introduction-à-la-normalisation)
 
@@ -41,27 +34,41 @@ CIP: que les propriétés et attributs soient bien respectés
   - [x] Comprendre la 2ème forme normale (2FN)
   - [x] Comprendre la 3ème forme normale (3FN)
 
-- [x] Les dépendances fonctionnelles
+- [x] [Les dépendances fonctionnelles](#dépendances-fonctionnelles)
 
   - [x] Savoir identifier les DF élémentaires
   - [x] Savoir identifier les DF composées
   - [x] Savoir identifier les DF transitives
 
-- [ ] Le graphe des dépendances
-  - [ ] Savoir construire un graphe des dépendances
-  - [ ] Savoir valider un graphe des dépendances
+- [x] [Le graphe des dépendances]()
+  - [x] Savoir construire un graphe des dépendances
+  - [x] Savoir valider un graphe des dépendances
 
 ![border](../assets/line/line-teal-point_r.png)
 
 # Introduction à la normalisation
 
+## Comprendre l'importance de la normalisation
+
+```
+Si je comprends l'importance de la normalisation, je peux identifier et réduire les anomalies dans une base de données pour améliorer sa cohérence.
+```
+
+## Savoir identifier les anomalies de redondance
+
+```
+Si je repère une redondance, je dois m'assurer qu'elle peut être éliminée en décomposant les données sans perdre d'information
+```
+
+## Définition
+
 - La normalisation est le processus qui permet d’organiser les données dans une base pour éviter la duplication, améliorer l’efficacité et garantir la cohérence des informations.
 
 - Elle permet de réduire les risques d’erreurs et de faciliter les mises à jour et la maintenance des données.
 
-### Exemple de Normalisation
+## Rien ne vaut un bon exemple
 
-#### Table Problématique (Avant Normalisation)
+## Table Problématique (Avant Normalisation)
 
 | **ID Emprunt** | **Nom du Client** | **Livre**               | **Date Emprunt** | **Date Retour** | **Adresse Client**      |
 | -------------- | ----------------- | ----------------------- | ---------------- | --------------- | ----------------------- |
@@ -70,9 +77,9 @@ CIP: que les propriétés et attributs soient bien respectés
 | 3              | Alice             | Le Seigneur des Anneaux | 05/11/2024       | 19/11/2024      | 10 rue des Lilas        |
 | 4              | Carol             | Harry Potter            | 07/11/2024       | 21/11/2024      | 30 boulevard de la Lune |
 
-### Problèmes de cette table
+## Problèmes de cette table
 
-##### Redondance :
+### Redondance :
 
 - Le nom de Alice apparaît deux fois, avec la même adresse 10 rue des Lilas pour chaque emprunt.
 - Le livre "Harry Potter" apparaît deux fois pour deux personnes différentes (Alice et Carol).
@@ -80,13 +87,13 @@ CIP: que les propriétés et attributs soient bien respectés
 
 - Si Alice déménage et change d'adresse, tu devras modifier son adresse à chaque ligne où elle apparaît, ce qui peut entraîner des erreurs si tu oublies une ligne.
 
-##### Difficulté de gestion des données :
+### Difficulté de gestion des données :
 
 - Si un livre comme "Harry Potter" est emprunté par plusieurs personnes, tu as des informations répétées à chaque emprunt, ce qui occupe plus de place et rend la base difficile à maintenir.
 
 ---
 
-#### Attaque Normalisation !!!
+## Attaque Normalisation !!!
 
 Pour corriger ces problèmes, on va normaliser la base de données. Voici ce qu’on va faire :
 
@@ -124,7 +131,7 @@ Pour corriger ces problèmes, on va normaliser la base de données. Voici ce qu�
 
 ---
 
-## Avantages après la normalisation :
+## Avantages après la normalisation :
 
 #### Réduction de la redondance :
 
@@ -147,7 +154,7 @@ La normalisation permet d’organiser les données de manière plus logique et e
 
 ![border](../assets/line/line-teal-point_r.png)
 
-# Les formes normales
+# Les Formes Normales
 
 ![border](../assets/line/line-teal-point_r.png)
 
@@ -172,7 +179,9 @@ Imaginons qu’on gère une base de données pour un magasin qui enregistre les 
 
 ## Comprendre la 1ère forme normale (1FN)
 
-![border](../assets/line/line-teal-point_r.png)
+```
+Si je valide la 1FN, je dois m'assurer que chaque colonne contient une valeur atomique (pas de liste ou tableau dans une cellule).
+```
 
 #### Une table est en 1ère forme normale (1FN) si elle respecte ces conditions :
 
@@ -203,6 +212,10 @@ La table ci-dessus respecte déjà la 1ère forme car chaque colonne contient de
 ![border](../assets/line/line-teal-point_r.png)
 
 ## Comprendre la 2ème forme normale (2FN)
+
+```
+Si je valide la 2FN, je dois m'assurer qu'il n'y a aucune dépendance partielle entre les attributs d'une table et sa clé primaire.
+```
 
 #### Définition de la 2ème forme normale (2FN) :
 
@@ -262,9 +275,11 @@ La table est maintenant plus efficace et plus facile à maintenir.
 
 ![border](../assets/line/line-teal-point_r.png)
 
-# Comprendre la 3ème forme normale (3FN)
+## Comprendre la 3ème forme normale (3FN)
 
-![border](../assets/line/line-teal-point_r.png)
+```
+Si je valide la 3FN, je dois m'assurer qu'il n'y a aucune dépendance transitive entre les attributs d'une table et sa clé primaire.
+```
 
 ### Définition de la 3ème forme normale (3FN) :
 
@@ -335,26 +350,22 @@ Assure que chaque valeur dans une cellule est atomique.
 Élimine les dépendances transitives entre les colonnes non-clés.
 Ces étapes de normalisation permettent de rendre la base de données plus efficace, cohérente, et plus facile à maintenir.
 
----
+<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
-## Dépendances Fonctionnelles
+![border](../assets/line/line-teal-point_r.png)
 
-Les dépendances fonctionnelles (DF) sont au cœur de la normalisation d'une base de données. Elles représentent des relations entre les attributs (ou colonnes) dans une table.
+# Dépendances Fonctionnelles
 
-Une dépendance fonctionnelle entre deux ensembles d'attributs dans une table existe lorsqu'une valeur d'un ensemble d'attributs détermine de manière unique la valeur d'un autre ensemble d'attributs.
-Par exemple, dans une table Commandes, si l'ID Commande détermine l'Adresse Client, alors on peut dire que :
+## Savoir identifier les DF élémentaires
 
-ID Commande → Adresse Client
-Cela signifie que pour chaque valeur d'ID Commande, il existe une Adresse Client associée.
+```
+Si j'identifie une dépendance fonctionnelle élémentaire, je dois m'assurer qu'un attribut dépend uniquement d'une autre colonne.
+```
 
-Les types de dépendances fonctionnelles que l'on rencontre souvent sont :
-
-Les dépendances fonctionnelles élémentaires
-Les dépendances fonctionnelles composées
-Les dépendances fonctionnelles transitives 2. Savoir identifier les DF élémentaires
 Une dépendance fonctionnelle élémentaire (DF élémentaire) implique un seul attribut (ou ensemble minimal d'attributs) qui détermine un autre attribut.
 
-Exemple concret :
+### Exemple concret :
+
 Imaginons une table Étudiants avec les colonnes :
 
 ID Étudiant
@@ -374,8 +385,13 @@ Copier le code
 Matière → Professeur
 Cela signifie qu'une matière détermine un seul professeur.
 
-3. Savoir identifier les DF composées
-   Une dépendance fonctionnelle composée est une dépendance fonctionnelle dans laquelle un ensemble d'attributs détermine un autre attribut. Il ne s'agit pas d'une dépendance entre un seul attribut, mais d'un groupe d'attributs.
+## Savoir identifier les DF composées
+
+```
+Si j'identifie une dépendance fonctionnelle composée, je dois vérifier qu'elle implique plusieurs attributs pour déterminer une valeur.
+```
+
+Une dépendance fonctionnelle composée est une dépendance fonctionnelle dans laquelle un ensemble d'attributs détermine un autre attribut. Il ne s'agit pas d'une dépendance entre un seul attribut, mais d'un groupe d'attributs.
 
 Exemple concret :
 Imaginons une table Ventes avec les colonnes :
@@ -394,8 +410,13 @@ Cela signifie que l'ensemble d'attributs (ID Vente et ID Produit) détermine de 
 
 Ici, il ne s'agit pas d'une seule colonne déterminant une autre, mais bien de deux attributs combinés qui déterminent une autre colonne.
 
-4. Savoir identifier les DF transitives
-   Une dépendance fonctionnelle transitive se produit lorsqu'un attribut dépend d'un autre attribut via un troisième attribut. En d'autres termes, une colonne A détermine B, et B détermine C. Par conséquent, on peut dire que A détermine C, mais ce lien est indirect.
+## Savoir identifier les DF transitives
+
+```
+Si j'identifie une dépendance fonctionnelle transitive, je dois m'assurer qu'un attribut dépend indirectement de la clé primaire via un autre attribut.
+```
+
+Une dépendance fonctionnelle transitive se produit lorsqu'un attribut dépend d'un autre attribut via un troisième attribut. En d'autres termes, une colonne A détermine B, et B détermine C. Par conséquent, on peut dire que A détermine C, mais ce lien est indirect.
 
 Exemple concret :
 Imaginons une table Commandes avec les colonnes :
@@ -435,10 +456,24 @@ Exemple : ID Commande → Nom Client (via ID Client)
 Conclusion :
 Comprendre les dépendances fonctionnelles est essentiel pour bien structurer une base de données. Cela permet de mieux organiser les données, de prévenir les anomalies, et de garantir l'intégrité de la base en respectant les formes normales.
 
+<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
+
+## Le Graphe des dépendances
+
+## Savoir construire un graphe des dépendances :
+
+```
+Si je construis un graphe des dépendances, je dois représenter visuellement les relations entre les attributs pour en faciliter l’analyse.
+```
+
+## Savoir valider un graphe des dépendances :
+
+```
+Si je valide un graphe des dépendances, je dois m'assurer qu'il reflète correctement toutes les relations de dépendance fonctionnelle de la table.
+```
+
 ---
 
-<a href="#sommaire">
-<img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;">
-</a>
+<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
 ![border](../assets/line/border_deco_l.png)
