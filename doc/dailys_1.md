@@ -1,71 +1,46 @@
-<a href="../README.md">
-  <img src="../assets/button/home_page.png" alt="Home page" style="width: 150px; height: auto;">
-</a>
+<a href="../README.md"><img src="../assets/button/home_page.png" alt="Home page" style="width: 150px; height: auto;"></a>
 
 ![border](../assets/line/line-pink-point_l.png)
 ![border](../assets/line/border_deco_rb.png)
 
-# Dailys 1
+# Dailys 1 MERISE
 
 ![border](../assets/line/line-pink-point_l.png)
 
 # Sommaire
 
-- [Navigation](#navigation)
+## Introduction à la méthode MERISE et au MCD
 
-![border](../assets/line/line-pink-point_l.png)
-
----
-
-# Découverte de MERISE
-
+- [x] [Découverte de MERISE](#découverte-de-merise)
 - [x] Comprendre l'historique et le contexte
-      [Comprendre l'historique et le contexte](#comprendre-l-historique-et-le-contexte)
 - [x] Identifier les différents niveaux de MERISE
-      [Les différents niveaux de Merise sont](#les-différents-niveaux-de-merise-sont)
 - [x] Comprendre le vocabulaire de base
-      [Les différents niveaux ](#les-différents-niveaux-de-merise-sont)
-
-- [x] Les concepts de base du MCD
-
-  - [x] Les entités
-
-    - [x] Savoir définir les entités
-          [Définir une entité](#définir-une-entité)
-
-    - [x] Savoir nommer les entités
-          [Savoir nommer les entités](#nommer-les-entités)
-    - [x] Savoir identifier les occurrences
-          [Savoir identifier les occurrences](#identifier-les-occurrences-d-entités)
-          [Tableau_représentatif](#tableau-représentatif)
-
-  - [x] Le dictionnaire de données
-        [Le dictionnaire de données](#le-dictionnaire-de-données)
-
-    - [x] Savoir créer un dictionnaire de données
-          [Savoir créer un dictionnaire de données](#savoir-créer-un-dictionnaire-de-données)
-    - [x] Savoir définir les propriétés
-          [Savoir définir les propriétés](#savoir-définir-les-propriétés)
-    - [x] Savoir typer les propriétés
-    - [x] Savoir documenter les propriétés
-
-  - [x] Les associations
-        [Les associations](#les-associations)
-    - [x] Savoir définir les associations
-    - [x] Savoir nommer les associations
-    - [x] Savoir identifier les cardinalités
-
-- [x] Les règles de gestion
-      [Les règles de gestion](#les-règles-de-gestion)
-
-  - [x] Savoir extraire les règles d'un cahier des charges
-  - [x] Savoir formaliser les règles de gestion
-  - [x] Savoir valider la cohérence des règles
-
-- [ ] Installation de Looping
-      [Installation de Looping sur ubuntu](#installation-de-looping)
+- [x] [Les concepts de base du MCD](#les-concepts-de-base-du-mcd)
+- [x] Les entités
+- [x] Savoir définir les entités
+- [x] Savoir nommer les entités
+- [x] Savoir identifier les occurrences
+- [x] [Tableau_représentatif](#tableau-représentatif)
+- [x] [Le Dictionnaire de données](#le-dictionnaire-de-données)
+- [x] Savoir créer un dictionnaire de données
+- [x] Savoir définir les propriétés
+- [x] Savoir typer les propriétés
+- [x] Savoir documenter les propriétés
+- [x] [Les associations](#les-associations)
+- [x] Savoir définir les associations
+- [x] Savoir nommer les associations
+- [x] Savoir identifier les cardinalités
+- [x] [Les règles de gestion](#les-règles-de-gestion)
+- [x] Savoir extraire les règles d'un cahier des charges
+- [x] Savoir formaliser les règles de gestion
+- [x] Savoir valider la cohérence des règles
+- [x] [Installation de Looping sur ubuntu](#installation-de-looping)
 
 ---
+
+![border](../assets/line/line-teal-point_l.png)
+
+# Découverte de Merise
 
 ![border](../assets/line/line-teal-point_l.png)
 
@@ -109,9 +84,7 @@ précise la structure des données et des traitements, adaptée aux contraintes 
 
 détaille la mise en œuvre technique des données et traitements sur une infrastructure informatique précise (par exemple, le choix du SGBD, des index, etc.).
 
-<a href="#sommaire">
-<img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;">
-</a>
+<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
 ---
 
@@ -119,11 +92,7 @@ détaille la mise en œuvre technique des données et traitements sur une infras
 
 # LES CONCEPTS DE BASE DU MCD
 
-![border](../assets/line/line_teal_point_l.png)
-
-## Définir une entité
-
-![border](../assets/line/line_teal_point_r.png)
+# Les Entités
 
 ## Réponse simple :
 
@@ -137,11 +106,7 @@ détaille la mise en œuvre technique des données et traitements sur une infras
 
 Dans une base de données Pokémon, les entités pourraient inclure POKEMON, DRESSEUR, et TYPE.
 
-![border](../assets/line/line_teal_point_r.png)
-
 ## Nommer les entités
-
-![border](../assets/line/line_teal_point_r.png)
 
 Réponse simple :
 Les entités doivent être nommées de manière claire et singulière pour être compréhensibles. Utilisez des noms au singulier et en majuscules pour une meilleure lisibilité.
@@ -150,11 +115,7 @@ Les entités doivent être nommées de manière claire et singulière pour être
 
 POKEMON pour représenter un Pokémon unique, DRESSEUR pour chaque personne qui les entraîne, et TYPE pour des catégories comme Eau, Feu, ou Plante.
 
-![border](../assets/line/line_teal_point_r.png)
-
 ## Identifier les occurrences d entités
-
-![border](../assets/line/line_teal_point_r.png)
 
 Réponse simple :
 Chaque occurrence est une instance spécifique de l’entité. Il est essentiel d’associer une clé unique à chaque occurrence.
@@ -162,21 +123,13 @@ Chaque occurrence est une instance spécifique de l’entité. Il est essentiel 
 #### Cas pratique Pokémon :
 Chaque Pokémon (ex. "Pikachu") est une occurrence de l’entité POKEMON. Dans une table POKEMON, chaque Pokémon a un identifiant unique (comme id_pokemon) pour le distinguer des autres.
 
-<a href="#sommaire">
-<img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;">
-</a>
+<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
-![border](../assets/line/line_teal_point_l.png)
+![border](../assets/line/line-teal-point_l.png)
 
 # Tableau représentatif
 
-![border](../assets/line/line_teal_point_l.png)
-
-![entite](../assets/img/entites.jpeg)
-
 ---
-
-![border](../assets/line/line_teal_point_l.png)
 
 # Le dictionnaire de données
 
@@ -252,15 +205,9 @@ Chaque propriété doit être documentée avec une description claire et concise
 
   ***
 
-  <a href="#sommaire">
-  <img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;">
-  </a>
-
-![border](../assets/line/line_teal_point_l.png)
+  <a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
 # Les associations
-
-![border](../assets/line/line_teal_point_r.png)
 
 En MERISE, une association relie deux ou plusieurs entités pour montrer les interactions ou relations entre elles. Elle sert à structurer et organiser les données en identifiant les connexions essentielles entre les éléments d'un système.
 
@@ -277,15 +224,13 @@ La cardinalité exprime le nombre minimum et maximum de fois qu'une entité peut
 
 ---
 
-<a href="#sommaire">
-<img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;">
-</a>
+<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
-![border](../assets/line/line_teal_point_l.png)
+![border](../assets/line/line-teal-point_l.png)
 
 ## Les Règles de gestion
 
-![border](../assets/line/line_teal_point_r.png)
+![border](../assets/line/line-teal-point_l.png)
 
 ### Introduction
 
@@ -315,11 +260,9 @@ La validation des règles de gestion consiste à vérifier que les règles ne se
 
 La validation des règles de gestion consiste à vérifier que les règles ne se contredisent pas et qu’elles sont applicables dans le contexte du système. Par exemple, si une règle indique qu’un Pokémon peut appartenir à plusieurs dresseurs, elle ne doit pas contredire une autre règle stipulant que chaque Pokémon est unique à un dresseur. La cohérence est vérifiée en analysant toutes les règles ensemble pour s’assurer qu’elles forment un ensemble logique et sans conflit.
 
-![border](../assets/line/line_teal_point_l.png)
+![border](../assets/line/line-teal-point_l.png)
 
 # Installation de looping
-
-![border](../assets/line/line_teal_point_l.png)
 
 ## Vérifier le contenu du fichier .zip
 
@@ -344,13 +287,8 @@ sudo apt install wine
 
 ---
 
-![border](../assets/line/line_teal_point_l.png)
-<a href="#sommaire">
-<img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;">
-</a><a href="../README.md">
-<img src="../assets/button/home_page.png" alt="Home page" style="width: 150px; height: auto;">
-</a>
+![border](../assets/line/line-teal-point_l.png)
 
----
+<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a><a href="../README.md"><img src="../assets/button/home_page.png" alt="Home page" style="width: 150px; height: auto;"></a>
 
-![border](../assets/line/border_r.png)
+![border](../assets/line/border_deco_rt.png)

@@ -40,7 +40,7 @@ CIP: que les propriétés et attributs soient bien respectés
   - [x] Savoir identifier les DF composées
   - [x] Savoir identifier les DF transitives
 
-- [x] [Le graphe des dépendances]()
+- [x] [Le graphe des dépendances](#le-graphe-des-dépendances)
   - [x] Savoir construire un graphe des dépendances
   - [x] Savoir valider un graphe des dépendances
 
@@ -148,9 +148,7 @@ Les informations sont organisées. Si tu veux savoir quels livres Alice a emprun
 #### Conclusion Définition
 La normalisation permet d’organiser les données de manière plus logique et efficace. Grâce à cela, tu évites de répéter des informations, tu réduis les erreurs possibles et tu facilites les mises à jour. C’est un peu comme ranger tes jouets dans des boîtes distinctes pour ne pas avoir un bazar dans ta chambre !
 
-<a href="#sommaire">
-<img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;">
-</a>
+<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
 ![border](../assets/line/line-teal-point_r.png)
 
