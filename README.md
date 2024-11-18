@@ -19,6 +19,7 @@
 - [D1. Introduction à la méthode MERISE et au MCD](./doc/dailys_1.md)
 - [D2. Les cardinalités et les contraintes](./doc/dailys_2.md)
 - [D3. Normalisation et dépendances fonctionnelles](./doc/dailys_3.md)
+- [D4. Le MLD (Modèle Logique de Données)](./doc/dailys_4.md)
 
 ![border](./assets/line/line-pink-point_l.png)
 
