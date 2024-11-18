@@ -11,13 +11,17 @@
 
 ![border](../../assets/line/line-pink-point_l.png)
 
-# Sommaire
+### Sommaire
 
-#### Exercices :
+-[]()
 
-comprendre les Formes Normales et les Dépendances Fonctionnelles
+![border](../../assets/line/border_deco_rt.png)
 
-### Exercice 1 :
+![border](../../assets/line/line-pink-point_l.png)
+
+# Exercice 1 :
+
+![border](../../assets/line/line-pink-point_l.png)
 
 Comprendre les différentes formes normales (1FN, 2FN, 3FN)
 
@@ -65,7 +69,11 @@ Table initiale (2FN appliquée) :
 Identifiez les colonnes avec des dépendances transitives.
 Normalisez la table pour respecter la 3FN en décomposant les dépendances transitives.
 
-### Exercice 2 :
+![border](../../assets/line/line-pink-point_l.png)
+
+# Exercice 2 :
+
+![border](../../assets/line/line-pink-point_l.png)
 
 Identifier les dépendances fonctionnelles (DF) 4. Dépendances élémentaires
 
@@ -108,7 +116,13 @@ Table :
 Identifiez la dépendance transitive.
 Expliquez comment cette dépendance fonctionne via un attribut intermédiaire.
 
-### Exercice 3 : Construire et valider des graphes de dépendances 7. Construire un graphe des dépendances
+![border](../../assets/line/line-pink-point_l.png)
+
+# Exercice 3 :
+
+![border](../../assets/line/line-pink-point_l.png)
+
+Construire et valider des graphes de dépendances 7. Construire un graphe des dépendances
 
 ### Table :
 

@@ -12,9 +12,7 @@
 
 ```
 (1FN) : Assure que chaque valeur dans une cellule est atomique.
-
 (2FN) : Élimine les dépendances partielles (chaque colonne non-clé dépend complètement de la clé primaire).
-
 (3FN) : Élimine les dépendances transitives entre les colonnes non-clés.
 ```
 
@@ -194,13 +192,19 @@ La normalisation permet d’organiser les données de manière plus logique et e
 
 <a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
-![border](../assets/line/line-teal-point_r.png)
+![border](../assets/line/border_deco_l.png)
 
 # Les Formes Normales
 
 ![border](../assets/line/line-teal-point_r.png)
 
 ## Comprendre la 1ère forme normale (1FN)
+
+```
+Si je valide la 1FN, je dois m'assurer que chaque colonne contient une valeur atomique (pas de liste ou tableau dans une cellule).
+
+pas de nom prenom dans un meme champ
+```
 
 ### Explication imagée :
 
@@ -209,6 +213,8 @@ La normalisation permet d’organiser les données de manière plus logique et e
 ### Cas concret :
 
 Une table contenant une colonne "Téléphones" avec des valeurs comme "06-12-34-56-78, 07-98-76-54-32" viole la 1FN. La 1FN exige une nouvelle ligne pour chaque numéro de téléphone, rendant les données plus exploitables et cohérentes.
+
+![border](../assets/line/line-teal-point_r.png)
 
 ## Table non normalisée (avant d’appliquer les formes normales) :
 
@@ -221,28 +227,15 @@ Une table contenant une colonne "Téléphones" avec des valeurs comme "06-12-34-
 
 ---
 
-![border](../assets/line/line-teal-point_r.png)
-
-## Comprendre la 1ère forme normale (1FN)
-
-```
-Si je valide la 1FN, je dois m'assurer que chaque colonne contient une valeur atomique (pas de liste ou tableau dans une cellule).
-
-pas de nom prenom dans un meme champ
-```
-
-#### Une table est en 1ère forme normale (1FN) si elle respecte ces conditions :
+##### Une table est en 1ère forme normale (1FN) si elle respecte ces conditions :
 
 - Pas de colonnes répétées : Chaque champ doit contenir une seule valeur (c’est-à-dire, pas de listes ou de groupes de valeurs dans une colonne).
 - Toutes les valeurs doivent être atomiques : Chaque cellule doit contenir une seule valeur et non un groupe de valeurs.
 
-## Problème avec la table actuelle :
+##### Problème avec la table actuelle :
 
-La table ci-dessus respecte déjà la 1ère forme car chaque colonne contient des valeurs atomiques (pas de listes ou groupes dans les cellules). Les données sont bien organisées en colonnes simples.
-
----
-
-![border](../assets/line/line-teal-point_r.png)
+- La table ci-dessus respecte déjà la 1ère forme car chaque colonne contient des valeurs atomiques (pas de listes ou groupes dans les cellules).
+- Les données sont bien organisées en colonnes simples.
 
 ## Table en 1ère forme normale (1FN)
 
@@ -255,61 +248,77 @@ La table ci-dessus respecte déjà la 1ère forme car chaque colonne contient de
 
 ---
 
-À ce stade, nous sommes en 1FN : chaque cellule contient une seule valeur, et chaque ligne est une combinaison unique d’informations.
+##### À ce stade, nous sommes en 1FN :
+chaque cellule contient une seule valeur, et chaque ligne est une combinaison unique d’informations.
+
+---
 
 ![border](../assets/line/line-pink-point_r.png)
 
 ## Comprendre la 2ème forme normale (2FN)
 
-```
-Si je valide la 2FN, je dois m'assurer qu'il n'y a aucune dépendance partielle entre les attributs d'une table et sa clé primaire.
-
-a: dans la table etudiant on ne doit pas retrouver des informations sur la classe , non de la classe etc
-```
-
-![border](../assets/line/border-teal-t.png)
-
-## Tips de cours
+![border](../assets/line/line-pink-point_r.png)
 
 ```
-
-def type : un attribut non identifiant ne dépend pas d'une partie de l'identifiant mais de tout l'identifiant
-
-((Numéro de commande | Numéro du produit)) | (Date de commande)
-on suppose que id concerne les deux premeirs
-mais numéro de commande est affilié à Date de commande
-alros on le sort pour leplacer avec date commande
-
+Si je valide la 2FN, je dois m'assurer qu'il n'y a aucune dépendance
+partielle entre les attributs d'une table et sa clé primaire.
 ```
 
-![border](../assets/line/border-teal-b.png)
-
-### Explication imagée :
-
-"Un cahier d'élèves n'a qu'une seule liste par page." La 2FN supprime les dépendances partielles entre une colonne non clé et une partie d’une clé primaire.
-
-### Cas concret :
-
-Une table "Commandes" avec une clé primaire composée de "CommandeID" et "ProduitID", où "PrixProduit" dépend uniquement de "ProduitID", viole la 2FN. La 2FN exige de séparer les produits dans une table à part, liée par "ProduitID".
-
----
+```
+a: dans la table etudiant on ne doit pas
+retrouver des informations sur la classe ,
+nom de la classe des professeurs etc...
+```
 
 ### Définition :
 
-Une table est en 2ème forme normale (2FN) si elle est déjà en 1ère forme normale (1FN) et que toutes les colonnes non-clés dépendent entièrement de la clé primaire. En d’autres termes, il ne doit pas y avoir de dépendances partielles.
+##### Une table est en 2ème forme normale (2FN) si :
+
+- La 2FN consiste à séparer les données pour que chaque
+  colonne non-clé dépende entièrement de la clé primaire.
+- Si une colonne ne dépend que d’une partie de la clé
+  primaire, elle doit être déplacée dans une table à part.
+
+### Explication imagée :
+
+" Imagine un cahier de classe où chaque page contient deux sections : une pour les élèves et une pour les professeurs. Ce mélange rend les pages confuses et difficiles à utiliser.
+En appliquant la 2FN, on sépare ces informations dans deux cahiers distincts : un pour les élèves, un pour les professeurs. Chaque cahier contient des informations claires et spécifiques. "
+
+### Cas concret :
+
+Prenons une table "Commandes" avec une clé primaire composée de deux colonnes : CommandeID et ProduitID.
+
+| CommandeID | ProduitID | PrixProduit | Quantité |
+| ---------- | --------- | ----------- | -------- |
+| 1          | 101       | 20          | 2        |
+| 1          | 102       | 15          | 1        |
+| 2          | 101       | 20          | 3        |
+
+#### Problème :
+La colonne PrixProduit dépend uniquement de ProduitID, pas de la combinaison complète (CommandeID + ProduitID). Cela viole la 2FN.
+
+#### Solution :
+
+PrixProduit doit être déplacé dans une table séparée liée uniquement par ProduitID.
+
+---
 
 ## Problèmes dans la table actuelle :
 
-- L’adresse client dépend du client (pas de la commande). Cela signifie qu'il y a une dépendance partielle :
-- l’adresse du client n’a pas besoin de répéter à chaque ligne de commande, elle peut être enregistrée une seule fois pour ce client.
+L’adresse du client dépend uniquement du client, pas de la commande. Cela crée une dépendance partielle.
+Répéter l'adresse du client dans chaque ligne de commande est source de redondance et de risques d’erreurs.
 
 ## Solution pour passer à la 2FN :
 
-Séparer les informations sur les clients dans une table distincte.
-Créer une table de commandes qui ne contient que les informations liées à chaque commande spécifique.
-Une table produits contenant les détails du produit acheté.
+Séparer les informations sur les clients dans une table dédiée.
+Créer une table spécifique pour les commandes, avec uniquement les informations liées à chaque commande.
+Créer une table pour les produits, avec leurs prix et autres détails.
 
-## Table Clients (après 2ème forme normale - 2FN)
+![border](../assets/line/line-pink-point_l.png)
+
+## Tables après normalisation (2FN)
+
+#### Table Clients (après 2ème forme normale - 2FN)
 
 | **ID Client** | **Client** | **Adresse Client**   |
 | ------------- | ---------- | -------------------- |
@@ -337,93 +346,127 @@ Une table produits contenant les détails du produit acheté.
 | Jean        | 30                |
 | Casquette   | 5                 |
 
+![border](../assets/line/line-pink-point_l.png)
+
 ### Avantages de la 2FN :
 
 ### Suppression de la redondance :
 
-L’adresse du client est maintenant séparée dans une table Clients. Si Alice déménage, on n’a plus besoin de mettre à jour chaque ligne de commande, juste la ligne correspondante dans la table des Clients.
-La table est maintenant plus efficace et plus facile à maintenir.
+- L’adresse du client est maintenant séparée dans une table Clients.
+- Si Alice déménage, on n’a plus besoin de mettre à jour chaque ligne de commande, juste la ligne correspondante dans la table des Clients.
 
 ---
 
-![border](../assets/line/line-teal-point_r.png)
+![border](../assets/line/line-pink-point_l.png)
 
 ## Comprendre la 3ème forme normale (3FN)
 
-```
-Si je valide la 3FN, je dois m'assurer qu'il n'y a aucune dépendance transitive entre les attributs d'une table et sa clé primaire.
+![border](../assets/line/line-teal-point_r.png)
 
+```
+La 3FN consiste à éliminer les dépendances transitives
+pour que chaque colonne non-clé soit directement liée à la clé primaire.
+
+Si une colonne non-clé dépend d’une autre colonne non-clé,
+elle doit être déplacée dans une table distincte.
 ```
 
 ### Explication imagée :
 
-"Un arbre de famille sans branches inutiles." La 3FN élimine les dépendances transitives, où une colonne dépend d'une autre colonne non clé via une colonne intermédiaire.
+```
+Imaginez un arbre généalogique :
+Dans un arbre bien structuré, chaque personne est directement reliée à ses parents. Pas besoin de branches inutiles ou de liens indirects compliqués.
+La 3FN élimine ces branches inutiles, en supprimant les relations transitives.
+```
+
+```
+"Imaginez un cahier d’inventaire pour un magasin. Chaque produit a son prix noté directement dans le cahier des produits, pas dans le cahier des commandes. Cela évite de répéter les prix dans chaque commande et rend les informations plus claires."
+```
 
 ### Cas concret :
 
-Dans une table "Employés" avec "EmployéID", "Département", et "ResponsableDépartement", si "ResponsableDépartement" dépend de "Département", cela viole la 3FN. La 3FN impose de créer une table séparée "Départements".
+Prenons une table "Employés" avec les colonnes EmployéID, Département, et ResponsableDépartement :
+
+| EmployéID | Département  | ResponsableDépartement |
+| --------- | ------------ | ---------------------- |
+| 1         | Informatique | Alice                  |
+| 2         | RH           | Bob                    |
+| 3         | Informatique | Alice                  |
 
 ---
 
-### Définition :
+### Problème :
 
-Une table est en 3ème forme normale (3FN) si elle est déjà en 2ème forme normale (2FN) et qu’il n’y a pas de dépendances transitives entre les colonnes non-clés.
+ResponsableDépartement dépend de Département (et non directement de EmployéID).
+Cela crée une dépendance transitive : EmployéID → Département → ResponsableDépartement.
 
-Une dépendance transitive se produit quand une colonne non-clé dépend d’une autre colonne non-clé via une clé primaire.
+### Solution :
+Déplacer Département et ResponsableDépartement dans une table séparée.
 
----
+### Définition
 
-### Problèmes dans la table actuelle (en 2FN) :
+Une table est en 3ème forme normale (3FN) si :
 
-Dans la table Commandes, nous avons une dépendance transitive :
+Elle respecte déjà la 2ème forme normale (2FN).
+Aucune colonne non-clé ne dépend d’une autre colonne non-clé via la clé primaire (dépendance transitive).
+En résumé : Les colonnes non-clés doivent dépendre directement de la clé primaire et uniquement d'elle.
 
-Prix Unitaire dépend de Produit, mais Produit dépend de ID Commande (via la table des produits). Donc, Prix Unitaire est transitivement dépendant de ID Commande via Produit.
+Problèmes dans la table actuelle (en 2FN)
+Dans une table de commandes :
 
-### Solution pour passer à la 3FN :
+| ID Commande | Produit   | Prix Unitaire | Quantité |
+| ----------- | --------- | ------------- | -------- |
+| 1           | T-shirt   | 10            | 2        |
+| 1           | Jean      | 30            | 1        |
+| 2           | Casquette | 5             | 3        |
 
-Séparer l’information sur les produits dans une table distincte.
-Prix Unitaire ne doit pas être dans la table Commandes. Il doit être enregistré dans une table Produits indépendante.
+Problème :
+Prix Unitaire dépend de Produit, pas directement de ID Commande.
+Cela viole la 3FN, car Prix Unitaire est lié transitivement à ID Commande via Produit.
+Solution pour passer à la 3FN
+Séparer les informations sur les produits dans une table dédiée.
+Prix Unitaire doit être enregistré dans une table indépendante liée par Produit.
 
-## Table Commandes (après 3ème forme normale - 3FN)
+## Tables après normalisation (3FN)
 
-| **ID Commande** | **ID Client** | **ID Produit** | **Quantité** |
-| --------------- | ------------- | -------------- | ------------ |
-| 1               | 1             | 1              | 2            |
-| 1               | 1             | 2              | 1            |
-| 2               | 2             | 3              | 3            |
-| 3               | 1             | 1              | 1            |
+### Table Commandes
 
----
+| ID Commande | ID Client | ID Produit | Quantité |
+| ----------- | --------- | ---------- | -------- |
+| 1           | 1         | 1          | 2        |
+| 1           | 1         | 2          | 1        |
+| 2           | 2         | 3          | 3        |
+| 3           | 1         | 1          | 1        |
 
-## Table Produits (après 3ème forme normale - 3FN)
+### Table Produits
 
-| **ID Produit** | **Produit** | **Prix Unitaire** |
-| -------------- | ----------- | ----------------- |
-| 1              | T-shirt     | 10                |
-| 2              | Jean        | 30                |
-| 3              | Casquette   | 5                 |
+| ID Produit | Produit   | Prix Unitaire |
+| ---------- | --------- | ------------- |
+| 1          | T-shirt   | 10            |
+| 2          | Jean      | 30            |
+| 3          | Casquette | 5             |
 
----
+### Table Clients (inchangée)
 
----
+| ID Client | Client | Adresse Client       |
+| --------- | ------ | -------------------- |
+| 1         | Alice  | 10 rue des Lilas     |
+| 2         | Bob    | 20 avenue des Champs |
 
-## Table Clients (inchangée après 3ème forme normale - 3FN)
-
-| **ID Client** | **Client** | **Adresse Client**   |
-| ------------- | ---------- | -------------------- |
-| 1             | Alice      | 10 rue des Lilas     |
-| 2             | Bob        | 20 avenue des Champs |
-
-### Avantages de la 3FN :
+### Avantages de la 3FN
 
 ### Suppression des dépendances transitives :
 
-Les informations sur le prix sont séparées de la table Commandes et sont gérées dans la table Produits.
-Chaque table contient uniquement des informations qui dépendent directement de la clé primaire, ce qui permet de mieux organiser la base et de faciliter sa gestion.
+Les informations sur les prix sont désormais gérées dans une table dédiée (Produits).
+Chaque table contient uniquement des données qui dépendent directement de sa clé primaire.
+Organisation simplifiée :
+
+Les relations entre les données sont plus claires.
+La gestion et les mises à jour deviennent plus faciles et moins sujettes aux erreurs.
 
 <a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
-![border](../assets/line/line-teal-point_r.png)
+![border](../assets/line/border_deco_l.png)
 
 # Dépendances Fonctionnelles
 
