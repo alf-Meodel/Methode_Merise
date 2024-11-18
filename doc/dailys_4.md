@@ -250,16 +250,17 @@ qui lui est propre. Dans une table, la clé primaire joue le même
  rôle : elle permet d'identifier chaque ligne de manière unique.
 ```
 
-Cas concret :
-Prenons la table Auteur.
+### Cas concret :
 
-MCD :
+#### Prenons la table Auteur.
+
+### MCD :
 
 | Entité | Attributs      |
 | ------ | -------------- |
 | Auteur | ID Auteur, Nom |
 
-MLD (avec clé primaire) :
+### MLD (avec clé primaire) :
 
 | ID Auteur (PK) | Nom         |
 | -------------- | ----------- |
