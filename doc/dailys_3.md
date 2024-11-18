@@ -49,9 +49,10 @@
 
 ![border](../assets/line/line-pink-point_l.png)
 
-## Liens
+## Navigation
 
-- [Repo de Hachemi](https://github.com/HachemiH/formation-cda-bdd)
+- [Lien vers le repo de Hachemi](https://github.com/HachemiH/formation-cda-bdd)
+- [Exercices](../doc/exercices/exercices.md)
 
 # Tableau recapitulatif
 
