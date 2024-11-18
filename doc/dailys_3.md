@@ -41,10 +41,6 @@
   - [x] Savoir identifier les DF composées
   - [x] Savoir identifier les DF transitives
 
-- [x] [Le graphe des dépendances](#le-graphe-des-dépendances)
-  - [x] Savoir construire un graphe des dépendances
-  - [x] Savoir valider un graphe des dépendances
-
 ![border](../assets/line/line-pink-point_l.png)
 
 ## Navigation
@@ -530,52 +526,6 @@ Si j'identifie une dépendance fonctionnelle transitive, je dois m'assurer qu'un
 | 3             | Informatique    | Alice                      |
 
 Dans cette table "Employés", "ResponsableDépartement" dépend de "Département", et "Département" dépend de "EmployéID". Cela signifie que la relation entre "EmployéID" et "ResponsableDépartement" est transitive. Par exemple, l'employé 1 appartient au département "Informatique", dont le responsable est Alice.
-
-<a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
-
-## Le Graphe des dépendances
-
-### Savoir construire un graphe des dépendances :
-
-```
-Si je construis un graphe des dépendances, je dois représenter visuellement les relations entre les attributs pour en faciliter l’analyse.
-```
-
-### Explication imagée :
-
-"Un schéma d'organisation d'entreprise." Construire un graphe des dépendances, c’est représenter visuellement comment les colonnes d’une table dépendent les unes des autres.
-
-### Cas concret :
-
-| **ProduitID** | **Catégorie** | **ResponsableCatégorie** |
-| ------------- | ------------- | ------------------------ |
-| 1             | Vêtements     | Alice                    |
-| 2             | Électronique  | Bob                      |
-| 3             | Vêtements     | Alice                    |
-
-Dans cette table "Produits", "Catégorie" dépend de "ProduitID", et "ResponsableCatégorie" dépend de "Catégorie". Par exemple, le produit 1 appartient à la catégorie "Vêtements", dont le responsable est Alice. Cette dépendance est facilement visualisable dans un graphe.
-
-## Savoir valider un graphe des dépendances :
-
-```
-Si je valide un graphe des dépendances, je dois m'assurer qu'il reflète correctement toutes les relations de dépendance fonctionnelle de la table.
-```
-
-### Explication imagée :
-
-"Vérifiez que toutes les flèches mènent au bon endroit." Valider un graphe des dépendances, c’est s’assurer qu’il reflète toutes les relations logiques correctes.
-
-### Cas concret :
-
-| **FactureID** | **Client** | **AdresseClient**    |
-| ------------- | ---------- | -------------------- |
-| 1             | Alice      | 10 rue des Lilas     |
-| 2             | Bob        | 20 avenue des Champs |
-| 3             | Carol      | 30 avenue de la Lune |
-
-Dans cette table "Factures", "AdresseClient" dépend de "Client", qui dépend de "FactureID". Cela signifie qu’on ne peut accéder à l’adresse du client que via le client associé à une facture donnée. Par exemple, la facture 1 est liée à Alice, dont l’adresse est "10 rue des Lilas". Si une flèche est incorrecte ou manquante dans le graphe, la validation échoue.
-
----
 
 <a href="#sommaire"><img src="../assets/button/back_to_top.png" alt="Back to top" style="width: 150px; height: auto;"></a>
 
