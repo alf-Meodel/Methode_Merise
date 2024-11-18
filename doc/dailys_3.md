@@ -49,6 +49,10 @@
 
 ![border](../assets/line/line-pink-point_l.png)
 
+## Liens
+
+- [Repo de Hachemi](https://github.com/HachemiH/formation-cda-bdd)
+
 # Tableau recapitulatif
 
 | **Type**                                    | **Explication imagée**                               | **Cas concret**                                                                                   |
@@ -347,6 +351,7 @@ La table est maintenant plus efficace et plus facile à maintenir.
 
 ```
 Si je valide la 3FN, je dois m'assurer qu'il n'y a aucune dépendance transitive entre les attributs d'une table et sa clé primaire.
+
 ```
 
 ### Explication imagée :
