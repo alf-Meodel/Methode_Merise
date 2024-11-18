@@ -222,6 +222,8 @@ Une table contenant une colonne "Téléphones" avec des valeurs comme "06-12-34-
 
 ```
 Si je valide la 1FN, je dois m'assurer que chaque colonne contient une valeur atomique (pas de liste ou tableau dans une cellule).
+
+pas de nom prenom dans un meme champ
 ```
 
 #### Une table est en 1ère forme normale (1FN) si elle respecte ces conditions :
@@ -250,13 +252,32 @@ La table ci-dessus respecte déjà la 1ère forme car chaque colonne contient de
 
 À ce stade, nous sommes en 1FN : chaque cellule contient une seule valeur, et chaque ligne est une combinaison unique d’informations.
 
-![border](../assets/line/line-teal-point_r.png)
+![border](../assets/line/line-pink-point_r.png)
 
 ## Comprendre la 2ème forme normale (2FN)
 
 ```
 Si je valide la 2FN, je dois m'assurer qu'il n'y a aucune dépendance partielle entre les attributs d'une table et sa clé primaire.
+
+a: dans la table etudiant on ne doit pas retrouver des informations sur la classe , non de la classe etc
 ```
+
+![border](../assets/line/border-teal-t.png)
+
+## Tips de cours
+
+```
+
+def type : un attribut non identifiant ne dépend pas d'une partie de l'identifiant mais de tout l'identifiant
+
+((Numéro de commande | Numéro du produit)) | (Date de commande)
+on suppose que id concerne les deux premeirs
+mais numéro de commande est affilié à Date de commande
+alros on le sort pour leplacer avec date commande
+
+```
+
+![border](../assets/line/border-teal-b.png)
 
 ### Explication imagée :
 
